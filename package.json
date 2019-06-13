@@ -21,7 +21,9 @@
     "start": "sirv public",
     "start:dev": "sirv public --dev",
     "now-build": "npm run build",
-    "deploy": "now deploy --target=production"
+    "deploy-functions": "firebase deploy --only functions",
+    "deploy-site": "now deploy --target=production",
+    "deploy": "npm run deploy-site && npm run deploy-functions"
   },
   "dependencies": {
     "firebase": "6.1.1"
