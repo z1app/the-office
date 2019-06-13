@@ -1,0 +1,59 @@
+{
+  "rooms": {
+    "papo-furado": {
+			"name":  "papo-furado",
+			"users": []
+		},
+		"pagamentos": {
+			"name": "pagamentos",
+			"users": [
+				{
+					"name":  "luciano",
+					"picture":  "https://lh6.googleusercontent.com/-wZW9osIQzas/AAAAAAAAAAI/AAAAAAAAAA4/_ZRVgZvFK8I/s96-c/photo.jpg"
+				},
+				{
+					"name": "thor",
+					"picture": "https://ca.slack-edge.com/T02DPN4RJ-U4FEK8QQL-f4b8bc43b53b-72"
+				},
+				{
+					"name": "jean",
+					"picture": "https://ca.slack-edge.com/T02DPN4RJ-U5T4W9FS8-5ccd4a92e293-72"
+				}
+			]
+		},
+		"solucees": {
+			"name": "soluções",
+			"users": [
+				{
+					"name": "allan",
+					"picture": "https://ca.slack-edge.com/T02DPN4RJ-U8DM6DR0R-2641b2c5c200-72"
+				},
+				{
+					"name": "igor",
+					"picture": "https://ca.slack-edge.com/T02DPN4RJ-U8Y277M5H-f3f873e21815-72"
+				}
+			]
+		},
+		"marshals": {
+			"name": "marshals",
+			"users": [
+				{
+					"name": "clayton",
+					"picture": "https://ca.slack-edge.com/T02DPN4RJ-U6443MRC6-9bd47c02fa56-72"
+				},
+				{
+					"name": "paulo",
+					"picture": "https://ca.slack-edge.com/T02DPN4RJ-U7D1NUR8E-f12b70b47628-72"
+				},
+				{
+					"name": "mayko",
+					"picture": "https://ca.slack-edge.com/T02DPN4RJ-UHRA9HQ9Z-cf23be3bb1e7-72"
+				},
+				{
+					"name": "davi",
+					"picture": "https://ca.slack-edge.com/T02DPN4RJ-U2Z9JP8E7-40d8d2966f54-72"
+				}
+			]
+		}
+  }
+}

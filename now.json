@@ -1,0 +1,20 @@
+{
+  "name": "escritorio-pagarme",
+  "version": 2,
+  "alias": "escritorio.pagarme.now.sh",
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@now/static-build",
+      "config": {
+        "distDir": "public"
+      }
+    }
+  ],
+  "regions": ["gru1"],
+  "public": true,
+  "github": {
+    "enabled": true,
+    "autoAlias": true
+  }
+}
