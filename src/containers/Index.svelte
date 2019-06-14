@@ -65,6 +65,10 @@
 		margin: auto;
 		margin-top: 100px;
 	}
+	.meet-container {
+		position: sticky;
+		top: 20px;
+	}
 </style>
 
 <Nav/>
@@ -85,13 +89,13 @@
 		</div>
 		<div class="meet">
 			{#if activeRoom}
-				<div class="nes-container with-title is-centered">
-					<p class="title">Sala: {activeRoomName}</p>
+				<div class="nes-container with-title is-centered meet-container">
+					<p class="title">sala: {activeRoomName}</p>
 					<Meet {activeRoom}/>
 				</div>
 			{:else}
-				<div class="nes-container with-title is-centered">
-					<p class="title">Sala: N/A</p>
+				<div class="nes-container with-title is-centered meet-container">
+					<p class="title">sala: n/a</p>
 					<p>Selecione uma das salas para poder conversar</p>
 				</div>
 			{/if}
