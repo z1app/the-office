@@ -38,9 +38,9 @@
 
 <div>
 	<div class="nes-container with-title is-centered">
-		<p class="title">criar sala</p>
+		<p class="title">Criar sala</p>
 		<div class="nes-field">
-			<label for="name_field">nome</label>
+			<label for="name_field">Nome</label>
 			<input
 				type="text"
 				id="name_field"
@@ -54,7 +54,7 @@
 				class="nes-btn is-primary"
 				on:click={createRoom}
 			>
-				criar
+				Criar
 			</button>
 		</div>
 	</div>
