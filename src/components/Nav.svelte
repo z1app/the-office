@@ -1,5 +1,17 @@
 <script>
 	import Login from '../containers/Login.svelte'
+	import { route } from '../services/store.js'
+
+	function updateRoute (name) {
+		return () => route.update(() => name)
+	}
+
+	let routeValue
+
+	route.subscribe(value => {
+		routeValue = value
+	})
+	
 </script>
 
 <style>
@@ -42,7 +54,7 @@
 	}
 
 	a {
-		text-decoration: none;
+		text-decoration: none !important;
 		padding: 1em 0.5em;
 		display: block;
 	}
@@ -54,7 +66,24 @@
 
 <nav>
 	<ul>
-		<li><a class='selected' href='.'>salas</a></li>
+		<li>
+			<a
+				class:selected={routeValue === 'list-rooms'}
+				on:click={updateRoute('list-rooms')}
+				href="#"
+			>
+				salas
+			</a>
+		</li>
+		<li>
+			<a
+				on:click={updateRoute('create-room')}
+				class:selected={routeValue === 'create-room'}
+				href="#"
+			>
+				gerenciar
+			</a>
+		</li>
 		<li class="f-right"><Login/></li>
 	</ul>
 </nav>

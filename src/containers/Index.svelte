@@ -2,27 +2,40 @@
 	import Nav from '../components/Nav.svelte'
 	import Meet from '../components/Meet.svelte'
 	import Rooms from './Rooms.svelte'
+	import Manage from './Manage.svelte'
 	import {
 		Users,
 	} from '../models'
 	import {
     getUserId,
 	} from '../services/local'
+	import { route } from '../services/store.js'
+
+	let routeValue
+
+	route.subscribe(value => {
+		routeValue = value
+	})
 	
 	let userId = getUserId()
 
 	let activeRoom = false
+	let activeRoomName = ''
+	let pinnedRooms = {}
 
 	Users.watch(
 		`/${userId}`,
 		false,
 		remoteUser => {
 			activeRoom = remoteUser.activeRoom
+			activeRoomName = remoteUser.activeRoomName
+			pinnedRooms = remoteUser.pinnedRooms || {}
 		}
 	)
 	if (userId) {
 		Users.onDisconect(userId)
 	}
+
 </script>
 
 <style>
@@ -59,12 +72,21 @@
 <main>
 	{#if userId}
     <div class="sidebar">
-			<Rooms {activeRoom}></Rooms>
+			{#if routeValue === 'list-rooms'}
+				<Rooms
+					{activeRoomName}
+					{activeRoom}
+					{pinnedRooms}
+				/>
+			{:else}
+				<Manage />
+			{/if}
+			
 		</div>
 		<div class="meet">
 			{#if activeRoom}
 				<div class="nes-container with-title is-centered">
-					<p class="title">Sala: {activeRoom}</p>
+					<p class="title">Sala: {activeRoomName}</p>
 					<Meet {activeRoom}/>
 				</div>
 			{:else}

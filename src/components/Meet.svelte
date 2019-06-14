@@ -59,6 +59,7 @@
 </style>
 
 <div
+  class="meet-container"
   bind:this={meetDiv}
 />
 
