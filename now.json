@@ -2,6 +2,7 @@
   "name": "escritorio-pagarme",
   "version": 2,
   "alias": "escritorio.pagarme.now.sh",
+  "scope": "pagarme",
   "builds": [
     {
       "src": "package.json",
