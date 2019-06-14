@@ -1,5 +1,8 @@
 <script>
   import { onMount } from 'svelte'
+  import {
+    getUserProfile,
+  } from '../services/local'
   
   export let activeRoom
   
@@ -42,12 +45,14 @@
 
     const domain = 'meet.jit.si'
     const options = getMeetingOptions(`escritorio-pagarme-${activeRoom}`)
+    const userProfile = getUserProfile()
     // const { user } = localState
     setTimeout(() => {
       const meet = new JitsiMeetExternalAPI(domain, options)
       meet._frame.style.height = 'calc(100vh - 170px)'
+      meet.executeCommand('displayName', userProfile.name)
+      meet.executeCommand('avatarUrl', userProfile.picture)
     }, 1000)
-    // meet.executeCommand('displayName', user.username)
   })
   
 </script>
