@@ -16,15 +16,36 @@
 		Users,
 	} from '../models'
 
+	const allowedDomains = [
+		'pagar.me',
+		'stone.co',
+		'stone.com.br',
+		'mundipagg.com',
+	]
+
 	function login () {
 		return authWithGoogle()
 			.then(response => {
 				const { profile } = response.additionalUserInfo
+				const {
+					name,
+					email,
+					picture,
+				} = profile
+
+				const emailDomain = email.split('@').pop()
+
+				if (!emailDomain || !allowedDomains.includes(emailDomain)) {
+					setTimeout(() => {
+						window.alert(`Desculpe mas apenas aceitamos login usando os seguintes domínios: ${allowedDomains.join(', ')}`)
+					}, 100)
+					throw new Error('Failed to Login')
+				}
 				const { uid } = response.user
 				const userProfile = {
-					name: profile.name,
-					email: profile.email,
-					picture: profile.picture,
+					name: name,
+					email: email,
+					picture: picture,
 					id: uid,
 				}
 				setUserProfile(userProfile)
