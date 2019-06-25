@@ -3,6 +3,7 @@
     "rooms": {
       ".read": "auth.uid != null",
       "$roomId": {
+        ".write": "!data.exists()",
         "users": {
           "$uid": {
             ".write": "auth.uid == $uid"
