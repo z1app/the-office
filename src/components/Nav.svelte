@@ -62,6 +62,18 @@
 	.f-right {
 		float: right;
 	}
+
+	.default-link {
+		display: inline-block;
+	}
+
+	.nes-icon.is-medium {
+		top: -16px;
+		margin-right: 32px;
+    margin-bottom: 0px;
+    transform: scale(3);
+	}
+
 </style>
 
 <nav>
@@ -84,6 +96,15 @@
 				gerenciar
 			</a>
 		</li>
-		<li class="f-right"><Login/></li>
+		<li class="f-right">
+			<a
+				class="default-link"
+				href="https://github.com/lucianopf/escritorio-pagarme"
+				target="_blank"
+			>
+				<i class="nes-icon github is-medium"></i>
+			</a>
+			<Login/>
+		</li>
 	</ul>
 </nav>
