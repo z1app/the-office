@@ -3,12 +3,22 @@
   import {
     getUserProfile,
   } from '../services/local'
+  import {
+		Rooms,
+	} from '../models'
   
   export let activeRoom
   
   let meetDiv
+  let noJitsi
 
-  onMount(() => {
+
+  onMount(async () => {
+    const room = await Rooms.get(`${activeRoom}`)
+    if (room.noJitsi) {
+      noJitsi = true
+      return
+    } 
     function getMeetingOptions(roomId) {
       return {
         roomName: roomId,
@@ -66,5 +76,9 @@
 <div
   class="meet-container"
   bind:this={meetDiv}
-/>
+>
+  {#if noJitsi}
+    <p>Esta sala não possui video-conferência, se quiser se comunicar com outros integrantes, por favor escolha outra sala.</p>
+  {/if}
+</div>
 
