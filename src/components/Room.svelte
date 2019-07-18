@@ -20,6 +20,7 @@
   export let active
   export let pinnedRoom
   export let id
+  export let globalyPinnedRoom
   
   function enterRoom () {
     const userProfile = getUserProfile()
@@ -88,11 +89,13 @@
   }
 </style>
 
-<i
-  class="nes-icon is-small star"
-  class:is-empty={!pinnedRoom}
-  on:click={togglePin}
-/>
+{#if !globalyPinnedRoom}
+  <i
+    class="nes-icon is-small star"
+    class:is-empty={!pinnedRoom}
+    on:click={togglePin}
+  />
+{/if}
 <div class="container nes-container with-title is-centered">
   <p class="title">{name}</p>
   {#each arrayrify(users) as user}

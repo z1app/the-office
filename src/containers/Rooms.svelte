@@ -6,7 +6,7 @@
 
 	let rooms = []
 	let loading = true
-	
+
 	export let activeRoom
 	export let activeRoomName
 	export let pinnedRooms
@@ -21,13 +21,23 @@
 	)
 
 	$: {
+		const globalyPinnedRooms = rooms
+		  .filter(({ globalyPinnedRoom }) => !!globalyPinnedRoom)
+
+		const localPinnedRooms = rooms
+			.filter(({ id, globalyPinnedRoom }) => pinnedRooms[id] && !globalyPinnedRoom)
+
+		const notPinnedRooms = rooms
+			.filter(({ id, globalyPinnedRoom }) => !pinnedRooms[id] && !globalyPinnedRoom)
+
 		rooms = [
-			...rooms.filter(({ id }) => pinnedRooms[id]),
-			...rooms.filter(({ id }) => !pinnedRooms[id]),
+			...globalyPinnedRooms,
+			...localPinnedRooms,
+			...notPinnedRooms,
 		]
 	}
 
-	
+
 </script>
 
 <div>
@@ -42,6 +52,7 @@
 					active={activeRoom === room.id}
 					pinnedRoom={!!pinnedRooms[room.id]}
 					id={room.id}
+					globalyPinnedRoom={room.globalyPinnedRoom}
 				/>
 			</span>
 		{/each}
