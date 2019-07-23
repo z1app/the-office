@@ -1,0 +1,25 @@
+## Description
+
+<!-- Write a brief and explicative description of your pull request. -->
+
+Closes #XXX 
+<!--
+Things to cite on the PR description:
+
+- Why is the PR needed
+- What the PR does
+- What are possible side effects
+- Additional information (related github issues, links, etc)
+
+  Example: This PR implements feature "x" so we can solve our payments problem. This PR closes #98928312874 (github issue)
+-->
+
+## Your checklist for this pull request
+
+:rotating_light: Please review this items for a good pull request. :four_leaf_clover:
+
+1. My changes are well covered by **tests** and **logs**
+2. I've updated the project docs (if needed)
+3. I fell safe about this implementation
+
+In a good pull request, everything above is true :relaxed:
