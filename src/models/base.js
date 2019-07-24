@@ -16,10 +16,6 @@ class BaseModel {
       .then(safeArrayrify)
   }
 
-  findByAuthor (uid) {
-    return this.findByAttribute('hostID', uid)
-  }
-
   find (attr, value) {
     if (attr === 'id') {
       return this.Model
@@ -42,7 +38,6 @@ class BaseModel {
   }
 
   update (id, data) {
-    console.log('Updating at', this.modelName, 'the key', id)
     if (!id) {
       return Promise.resolve(true)
     }
@@ -107,33 +102,14 @@ class BaseModel {
   }
 
   delete (id) {
-    console.log('Deleting at', this.modelName, 'the key', id)
     return this.set(id, null)
   }
 
   create (data, id = false) {
-    console.log('Creating at', this.modelName, 'the key', id)
     const instance = this.Model.push()
     const key = id ? id : instance.key
     return this.set(key, data)
       .then(() => this.get(key))
-  }
-
-  getKeys (id = false) {
-    if (id) {
-      return fetchDatabase(`${this.modelName}/${id}`, 'shallow=true')
-        .then(r => Object.keys(r || {}))
-        .catch(e => ([]))
-    } else {
-      return fetchDatabase(this.modelName, 'shallow=true')
-        .then(r => Object.keys(r || {}))
-        .catch(e => ([]))
-    }
-  }
-
-  getLength (id = false) {
-    return this.getKeys(id)
-      .then(r => r.length)
   }
 
   increaseCounter (id) {
