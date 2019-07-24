@@ -4,6 +4,15 @@ admin.initializeApp(functions.config().firebase)
 
 const userOnlineRef = functions.database.ref('/users/{userId}/online')
 
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
+
+const allowedDomains = [
+  'pagar.me',
+  'stone.co',
+  'stone.com.br',
+  'mundipagg.com',
+]
+
 exports.removeFromRooms = userOnlineRef.onUpdate((change, context) => {
     const { params } = context
     const { userId } = params
@@ -16,8 +25,6 @@ exports.removeFromRooms = userOnlineRef.onUpdate((change, context) => {
     if (hasChange || isOnline) {
       return null
     }
-
-    const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
     return delay(2000)
       .then(() => {
@@ -47,4 +54,22 @@ exports.removeFromRooms = userOnlineRef.onUpdate((change, context) => {
         }
         return true
       })
+  })
+
+
+exports.ensureAllowedDomains = functions.auth
+  .user()
+  .onCreate(({ uid, email }) => {
+    const emailTokens = email.split('@')
+    const domain = emailTokens.pop()
+    if (allowedDomains.includes(domain)) {
+      return true
+    }
+
+    return Promise.all([
+      admin.database().ref(`blockedUsers/${uid}`).set(true),
+      admin.database().ref(`users/${uid}/blocked`).set(true),
+      admin.auth().revokeRefreshTokens(uid),
+      admin.auth().updateUser(uid, { disabled: true }),
+    ])
   })
