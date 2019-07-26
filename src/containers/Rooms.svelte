@@ -46,9 +46,10 @@
 </script>
 
 <style>
-	.filter-input {
-		margin-bottom: 15px;
-	}
+  .filter-input {
+    margin-bottom: 15px;
+    max-width: 97.5%;
+  }
 </style>
 
 <div>
