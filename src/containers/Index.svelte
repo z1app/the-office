@@ -15,6 +15,7 @@
 
 	let userId = getUserId()
 
+	let collapsed = false
 	let activeRoom = false
 	let activeRoomName = ''
 	let pinnedRooms = {}
@@ -32,6 +33,10 @@
 	if (userId) {
 		Users.onDisconect(userId)
 	}
+
+	function collapse () {
+		collapsed = !collapsed
+	}
 </script>
 
 <style>
@@ -42,10 +47,9 @@
 	.meet {
 		display: inline-block;
 		position: relative;
-		max-width: 75vw;
 		width: 100%;
 		background-color: white;
-		padding: 2em;
+		padding: 1em;
 		box-sizing: border-box;
 	}
 	.sidebar {
@@ -54,8 +58,9 @@
 		width: 25vw;
 		min-width: 400px;
 		background-color: white;
-		padding: 2em;
+		padding: 1em;
 		box-sizing: border-box;
+		transition: all 0.75s;
 	}
 	.login-notice {
 		margin: auto;
@@ -65,13 +70,27 @@
 		position: sticky;
 		top: 20px;
 	}
+	.collapse {
+		position: sticky;
+    top: 20px;
+		margin-top: 20px;
+    height: 45px;
+	}
+	.collapsed {
+		transform: translateX(-25vw);
+		min-width: 0;
+		width: 0;
+		padding: 0;
+		margin: 0;
+		transition: all 0.75s;
+	}
 </style>
 
 <Nav/>
 
 <main>
 	{#if userId}
-    <div class="sidebar">
+    <div class="sidebar {collapsed ? 'collapsed' : ''}">
 			{#if routeValue === 'list-rooms'}
 				<Rooms
 					{activeRoomName}
@@ -82,6 +101,17 @@
 				<Manage />
 			{/if}
 		</div>
+		<button
+			type="button"
+			class="nes-btn collapse"
+    	on:click={collapse}
+		>
+			{#if collapsed}
+				{'>'}
+			{:else}
+				{'<'}
+			{/if}
+		</button>
 		<div class="meet">
 			{#if activeRoom}
 				<div class="nes-container with-title is-centered meet-container">
