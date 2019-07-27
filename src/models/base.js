@@ -8,11 +8,14 @@ class BaseModel {
   }
 
   getAll () {
-    return this.Model.once('value').then(safeArrayrify)
+    return this.Model.once('value')
+      .then(safeArrayrify)
   }
 
   findByAttribute (attr, value) {
-    return this.Model.orderByChild(attr).equalTo(value).once('value')
+    return this.Model.orderByChild(attr)
+      .equalTo(value)
+      .once('value')
       .then(safeArrayrify)
   }
 
@@ -41,15 +44,18 @@ class BaseModel {
     if (!id) {
       return Promise.resolve(true)
     }
-    return this.Model.child(id).update(data)
+    return this.Model.child(id)
+      .update(data)
   }
 
   set (id, data) {
-    return this.Model.child(id).set(data)
+    return this.Model.child(id)
+      .set(data)
   }
 
   get (id = '/', array = false) {
-    return this.Model.child(id).once('value')
+    return this.Model.child(id)
+      .once('value')
       .then(res => {
         if (res && res.val && res.val()) {
           if (!res.val().replace && Object.keys(res.val()).length) {
@@ -113,11 +119,13 @@ class BaseModel {
   }
 
   increaseCounter (id) {
-    return this.Model.child(id).transaction(counter => counter ? counter + 1 : 1)
+    return this.Model.child(id)
+      .transaction(counter => counter ? counter + 1 : 1)
   }
 
   decreaseCounter (id) {
-    return this.Model.child(id).transaction(counter => counter ? counter - 1 : 0)
+    return this.Model.child(id)
+      .transaction(counter => counter ? counter - 1 : 0)
   }
 }
 

@@ -6,12 +6,11 @@
   import {
 		Rooms,
 	} from '../models'
-  
+
   export let activeRoom
-  
+
   let meetDiv
   let noJitsi
-
 
   onMount(async () => {
     const room = await Rooms.get(`${activeRoom}`)
@@ -56,7 +55,7 @@
     const domain = 'meet.jit.si'
     const options = getMeetingOptions(`escritorio-pagarme-${activeRoom}`)
     const userProfile = getUserProfile()
-    // const { user } = localState
+
     setTimeout(() => {
       const meet = new JitsiMeetExternalAPI(domain, options)
       meet._frame.style.height = 'calc(100vh - 170px)'
@@ -64,7 +63,6 @@
       meet.executeCommand('avatarUrl', userProfile.picture)
     }, 1000)
   })
-  
 </script>
 
 <style>
@@ -81,4 +79,3 @@
     <p>Esta sala não possui video-conferência, se quiser se comunicar com outros integrantes, por favor escolha outra sala.</p>
   {/if}
 </div>
-

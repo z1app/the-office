@@ -12,9 +12,7 @@
 		clearUser,
 	} from '../services/local'
 
-	import {
-		Users,
-	} from '../models'
+	import { Users } from '../models'
 
 	const allowedDomains = [
 		'pagar.me',
@@ -64,7 +62,6 @@
 	}
 
 	let logged = !!getUserId()
-
 </script>
 
 {#if logged}

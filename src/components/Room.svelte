@@ -1,9 +1,6 @@
 <script>
   import UserProfile from './UserProfile.svelte'
-  import {
-    Rooms,
-    Users,
-  } from '../models'
+  import { Rooms, Users } from '../models'
 
   import {
     getUserProfile,
@@ -11,9 +8,7 @@
     setUserProfile,
   } from '../services/local'
 
-  import {
-    arrayrify,
-  } from '../services/helpers'
+  import { arrayrify } from '../services/helpers'
 
 	export let name
   export let users
@@ -21,7 +16,7 @@
   export let pinnedRoom
   export let id
   export let globalyPinnedRoom
-  
+
   function enterRoom () {
     const userProfile = getUserProfile()
     return Users.get(userProfile.id)
@@ -74,9 +69,8 @@
     const uid = getUserId()
     Users.set(`${uid}/pinnedRooms/${id}`, !pinnedRoom)
   }
-
 </script>
-  
+
 <style>
   .container {
     margin-bottom: 10px;
