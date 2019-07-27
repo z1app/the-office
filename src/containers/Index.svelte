@@ -3,12 +3,8 @@
 	import Meet from '../components/Meet.svelte'
 	import Rooms from './Rooms.svelte'
 	import Manage from './Manage.svelte'
-	import {
-		Users,
-	} from '../models'
-	import {
-    getUserId,
-	} from '../services/local'
+	import { Users } from '../models'
+	import { getUserId } from '../services/local'
 	import { route } from '../services/store.js'
 
 	let routeValue
@@ -16,7 +12,7 @@
 	route.subscribe(value => {
 		routeValue = value
 	})
-	
+
 	let userId = getUserId()
 
 	let activeRoom = false
@@ -32,10 +28,10 @@
 			pinnedRooms = remoteUser.pinnedRooms || {}
 		}
 	)
+
 	if (userId) {
 		Users.onDisconect(userId)
 	}
-
 </script>
 
 <style>
@@ -85,7 +81,6 @@
 			{:else}
 				<Manage />
 			{/if}
-			
 		</div>
 		<div class="meet">
 			{#if activeRoom}
@@ -105,5 +100,4 @@
 			<p>Para prosseguir por favor faça o login.</p>
 		</div>
   {/if}
-	
 </main>

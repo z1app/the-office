@@ -1,8 +1,6 @@
 <script>
 	import Room from '../components/Room.svelte'
-	import {
-		Rooms,
-	} from '../models'
+	import { Rooms } from '../models'
 
 	let allRooms = []
 	let filteredRooms

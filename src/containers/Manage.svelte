@@ -1,13 +1,7 @@
 <script>
-	import {
-		Rooms,
-	} from '../models'
-	import {
-		getUserId,
-	} from '../services/local'
-	import { 
-		route,
-	} from '../services/store.js'
+	import { Rooms } from '../models'
+	import { getUserId } from '../services/local'
+	import { route } from '../services/store.js'
 
 	let roomName = ''
 
@@ -27,7 +21,6 @@
 				return route.update(() => 'list-rooms')
 			})
 	}
-
 </script>
 
 <style>

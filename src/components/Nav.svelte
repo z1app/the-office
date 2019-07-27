@@ -11,7 +11,6 @@
 	route.subscribe(value => {
 		routeValue = value
 	})
-	
 </script>
 
 <style>
@@ -73,7 +72,6 @@
     margin-bottom: 0px;
     transform: scale(3);
 	}
-
 </style>
 
 <nav>
