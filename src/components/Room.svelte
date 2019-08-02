@@ -83,9 +83,14 @@
   }
 </style>
 
-{#if !globalyPinnedRoom}
+{#if globalyPinnedRoom}
   <i
     class="nes-icon is-small star"
+    alt="globally_pinned_room"
+  />
+{:else}
+  <i
+    class="nes-icon is-small heart"
     class:is-empty={!pinnedRoom}
     on:click={togglePin}
   />
