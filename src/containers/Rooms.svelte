@@ -10,7 +10,7 @@
 	export let activeRoomName
 	export let pinnedRooms
 	export let filters = {
-		name: ''
+		name: '',
 	}
 
 	const filterRooms = (rooms, filters) => rooms
@@ -33,7 +33,12 @@
 			.filter(({ id, globalyPinnedRoom }) => pinnedRooms[id] && !globalyPinnedRoom)
 
 		const notPinnedRooms = allRooms
-			.filter(({ id, globalyPinnedRoom }) => !pinnedRooms[id] && !globalyPinnedRoom)
+      .filter(({ id, globalyPinnedRoom }) => !pinnedRooms[id] && !globalyPinnedRoom)
+      .sort((base, compared) => {
+        const baseUsersCount = Object.keys(base.users || {}).length
+        const comparedUsersCount = Object.keys(compared.users || {}).length
+        return comparedUsersCount - baseUsersCount
+      })
 
 		filteredRooms = filterRooms([
 			...globalyPinnedRooms,
