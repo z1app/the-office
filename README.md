@@ -5,44 +5,52 @@
 <h1 align="center">Escritório Pagarme</h1>
 
 <p align="center">
-  Projeto altamente inspirado pelo <a href="https://github.com/ResultadosDigitais/matrix">Matrix</a>
-  que tem por objetivo a criação de um ambiente de preseça virtual com videoconferência.
+  <sub>
+    <sup>
+      <a href="/README.pt.md" align="center">[portuguese version]</a>
+    </sup>
+  </sub>
 </p>
 
-## Descrição
+<p align="center">
+  This project is heavily inspired at <a href="https://github.com/ResultadosDigitais/matrix">Matrix</a>
+  that targets the development of a virtual presence system.
+</p>
 
-O projeto foi construído com o objetivo de permitir remotos se comunicar rapidamente e diretamente com não remotos sem a necessidade de agendamento ou criação de salas no Hangouts/Meet.
+## Description
 
-Objetivos do protótipo:
+The project has been built targeting remote to comunicate easily with non remote co-workers without the need to setup a meeting room or any conference system.
 
-- [x] Login usando Google.
-- [x] Sistema de presença que indica o status de um usuário.
-- [x] Integração com sistema de vídeo usando Jitsi.
-- [x] Restrição de login baseado em domínio usado.
+Goals of the project:
 
-### Tecnologias
+- [x] Login with Google.
+- [x] Full presence system.
+- [x] Video chat with Jitsi.
+- [x] Secure login by allowing only a couple domains to login.
 
-O projeto tem como uma das premissas utilizar tecnologias ultra modernas e não depender de gerenciamento de servidores. Tendo isso em mente o projeto está sendo construiído usando <a href="https://svelte.dev/" target="_blank">Svelte</a>, <a href="https://jitsi.org/" target="_blank">Jitsi</a>, <a href="https://firebase.google.com/docs/database" target="_blank">Firebase Realtime Database</a>, <a href="https://firebase.google.com/docs/functions" target="_blank">Firebase Functions</a> e <a href="http://now.sh">Zeit Now</a>.
- 
-## Como utilizar
+### Technologies
 
-O projeto está hospedado em <a href="https://escritorio.pagarme.now.sh" target="_blank">escritorio.pagarme.now.sh</a> entretanto para poder prosseguir com o login é necessário possuir um domínio do grupo Stone.co.
+The initial goal of the project was to try out and learn most modern techs and frameworks and avoid at all costs server management. Having this in mind the project has been built using <a href="https://svelte.dev/" target="_blank">Svelte</a>, <a href="https://jitsi.org/" target="_blank">Jitsi</a>, <a href="https://firebase.google.com/docs/database" target="_blank">Firebase Realtime Database</a>, <a href="https://firebase.google.com/docs/functions" target="_blank">Firebase Functions</a> e <a href="http://now.sh">Zeit Now</a>.
 
-### Rodando localmente
+## Usage
 
-1. Clone o repositório (ou fork)
-2. Entre no projeto `cd escritorio-pagarme`
-3. Instale as dependências `npm i`
-4. Inicie o servidor local `npm run dev`
-5. Visite `http://localhost:5000`
+The project is currently hosted at <a href="https://escritorio.pagarme.now.sh" target="_blank">escritorio.pagarme.now.sh</a> therefore to proceed to login you'll need a Stone.co valid domain.
 
-## Contribuidores
+### Local development
+
+1. Clone the repo (or fork)
+2. Navigate to the project folder `cd escritorio-pagarme`
+3. Install the dependencies `npm i`
+4. Start the development server `npm run dev`
+5. Head to `http://localhost:5000`
+
+## Contributors
 
 | [<img src="https://avatars1.githubusercontent.com/u/4103305?v=3&s=115"><br><sub>@allangrds</sub>](https://github.com/allangrds) | [<img src="https://avatars1.githubusercontent.com/u/19209246?v=3&s=115"><br><sub>@jeanaugustoos</sub>](https://github.com/jeanaugustoos) | [<img src="https://avatars1.githubusercontent.com/u/8422610?v=3&s=115"><br><sub>@thor99</sub>](https://github.com/thor99) | [<img src="https://avatars1.githubusercontent.com/u/5989971?v=3&s=115"><br><sub>@MatheusVellone</sub>](https://github.com/MatheusVellone) |
 | :---: | :---: | :---: | :---: |
 
 
-## Autor
+## Author
 
 | [<img src="https://avatars0.githubusercontent.com/u/8251208?v=3&s=115"><br><sub>@lucianopf</sub>](https://github.com/lucianopf) |
 | :---: |
