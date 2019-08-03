@@ -1,5 +1,5 @@
 <script>
-	export let user
+  export let user
 </script>
 
 <style>
@@ -33,7 +33,7 @@
   <img
     class="nes-avatar is-rounded is-large"
     src={user.picture}
-    alt={user.name} 
+    alt={user.name}
     style="image-rendering: pixelated;"
   />
   <p class="tooltiptext nes-balloon from-left nes-pointer">

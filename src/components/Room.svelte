@@ -10,7 +10,7 @@
 
   import { arrayrify } from '../services/helpers'
 
-	export let name
+  export let name
   export let users
   export let active
   export let pinnedRoom

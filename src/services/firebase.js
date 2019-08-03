@@ -21,4 +21,3 @@ export const authLogout = () =>
   firebase.auth().signOut()
 
 export const getUser = () => firebase.auth().currentUser
-
