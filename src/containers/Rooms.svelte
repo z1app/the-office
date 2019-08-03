@@ -14,7 +14,29 @@
   }
 
   const filterRooms = (rooms, filters) => rooms
-    .filter(room => filters.name === '' || room.name.includes(filters.name))
+    .filter((room) => {
+      if (filters.name === '') {
+        return true
+      }
+
+      const nameRegex = new RegExp(filters.name, 'i')
+
+      if (nameRegex.test(room.name)) {
+        return true
+      }
+
+      if (room.users) {
+        const usersInRoom = Object.values(room.users).map(user => user.name.toLowerCase())
+
+        const filterMatch = usersInRoom.some(user => nameRegex.test(user))
+
+        if (filterMatch) {
+          return true
+        }
+      }
+
+      return false
+    })
 
   Rooms.watch(
     '/',
