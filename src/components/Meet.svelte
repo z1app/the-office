@@ -4,8 +4,8 @@
     getUserProfile,
   } from '../services/local'
   import {
-		Rooms,
-	} from '../models'
+    Rooms,
+  } from '../models'
 
   export let activeRoom
 
@@ -17,7 +17,7 @@
     if (room.noJitsi) {
       noJitsi = true
       return
-    } 
+    }
     function getMeetingOptions(roomId) {
       return {
         roomName: roomId,

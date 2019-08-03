@@ -1,38 +1,38 @@
 <script>
-	import Room from '../components/Room.svelte'
-	import { Rooms } from '../models'
+  import Room from '../components/Room.svelte'
+  import { Rooms } from '../models'
 
-	let allRooms = []
-	let filteredRooms
-	let loading = true
+  let allRooms = []
+  let filteredRooms
+  let loading = true
 
-	export let activeRoom
-	export let activeRoomName
-	export let pinnedRooms
-	export let filters = {
-		name: '',
-	}
+  export let activeRoom
+  export let activeRoomName
+  export let pinnedRooms
+  export let filters = {
+    name: '',
+  }
 
-	const filterRooms = (rooms, filters) => rooms
-		.filter(room => filters.name === '' || room.name.includes(filters.name))
+  const filterRooms = (rooms, filters) => rooms
+    .filter(room => filters.name === '' || room.name.includes(filters.name))
 
-	Rooms.watch(
-		'/',
-		true,
-		remoteRooms => {
-			allRooms = remoteRooms
-			loading = false
-		}
-	)
+  Rooms.watch(
+    '/',
+    true,
+    remoteRooms => {
+      allRooms = remoteRooms
+      loading = false
+    }
+  )
 
-	$: {
-		const globalyPinnedRooms = allRooms
-		  .filter(({ globalyPinnedRoom }) => !!globalyPinnedRoom)
+  $: {
+    const globalyPinnedRooms = allRooms
+      .filter(({ globalyPinnedRoom }) => !!globalyPinnedRoom)
 
-		const localPinnedRooms = allRooms
-			.filter(({ id, globalyPinnedRoom }) => pinnedRooms[id] && !globalyPinnedRoom)
+    const localPinnedRooms = allRooms
+      .filter(({ id, globalyPinnedRoom }) => pinnedRooms[id] && !globalyPinnedRoom)
 
-		const notPinnedRooms = allRooms
+    const notPinnedRooms = allRooms
       .filter(({ id, globalyPinnedRoom }) => !pinnedRooms[id] && !globalyPinnedRoom)
       .sort((base, compared) => {
         const baseUsersCount = Object.keys(base.users || {}).length
@@ -40,12 +40,12 @@
         return comparedUsersCount - baseUsersCount
       })
 
-		filteredRooms = filterRooms([
-			...globalyPinnedRooms,
-			...localPinnedRooms,
-			...notPinnedRooms,
-		], filters)
-	}
+    filteredRooms = filterRooms([
+      ...globalyPinnedRooms,
+      ...localPinnedRooms,
+      ...notPinnedRooms,
+    ], filters)
+  }
 </script>
 
 <style>
@@ -56,24 +56,24 @@
 </style>
 
 <div>
-	{#if loading}
-		<p>loading...</p>
-	{:else}
-		<input
-			class='nes-input filter-input'
-			placeholder='Filtrar salas'
-			type='text'
-			bind:value="{filters.name}"
-		>
-		{#each filteredRooms as room}
-			<Room
-				name={room.name}
-				users={room.users || {}}
-				active={activeRoom === room.id}
-				pinnedRoom={!!pinnedRooms[room.id]}
-				id={room.id}
-				globalyPinnedRoom={room.globalyPinnedRoom}
-			/>
-		{/each}
-	{/if}
+  {#if loading}
+    <p>loading...</p>
+  {:else}
+    <input
+      class='nes-input filter-input'
+      placeholder='Filtrar salas'
+      type='text'
+      bind:value="{filters.name}"
+    >
+    {#each filteredRooms as room}
+      <Room
+        name={room.name}
+        users={room.users || {}}
+        active={activeRoom === room.id}
+        pinnedRoom={!!pinnedRooms[room.id]}
+        id={room.id}
+        globalyPinnedRoom={room.globalyPinnedRoom}
+      />
+    {/each}
+  {/if}
 </div>
