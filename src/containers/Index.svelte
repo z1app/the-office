@@ -5,12 +5,12 @@
   import Manage from './Manage.svelte'
   import { Users } from '../models'
   import { getUserId } from '../services/local'
-  import { route } from '../services/store.js'
+  import { sideBar } from '../services/store.js'
 
-  let routeValue
+  let sideBarValue
 
-  route.subscribe(value => {
-    routeValue = value
+  sideBar.subscribe(value => {
+    sideBarValue = value
   })
 
   let userId = getUserId()
@@ -91,7 +91,7 @@
 <main>
   {#if userId}
     <div class="sidebar {collapsed ? 'collapsed' : ''}">
-      {#if routeValue === 'list-rooms'}
+      {#if sideBarValue === 'list-rooms'}
         <Rooms
           {activeRoomName}
           {activeRoom}
