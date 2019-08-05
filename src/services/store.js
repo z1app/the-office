@@ -1,3 +1,3 @@
 import { writable } from 'svelte/store';
 
-export const route = writable('list-rooms')
+export const sideBar = writable('list-rooms')

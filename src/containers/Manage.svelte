@@ -1,7 +1,7 @@
 <script>
   import { Rooms } from '../models'
   import { getUserId } from '../services/local'
-  import { route } from '../services/store.js'
+  import { sideBar } from '../services/store.js'
 
   let roomName = ''
 
@@ -18,7 +18,7 @@
     })
       .then(() => {
         roomName = ''
-        return route.update(() => 'list-rooms')
+        return sideBar.update(() => 'list-rooms')
       })
   }
 </script>

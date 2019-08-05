@@ -1,19 +1,15 @@
 <script>
   import Login from '../containers/Login.svelte'
-  import { route } from '../services/store.js'
+  import { sideBar } from '../services/store.js'
 
-  function updateRoute (name) {
-    return () => route.update(() => name)
+  function updateSideBar (name) {
+    return () => sideBar.update(() => name)
   }
 
-  let routeValue
+  let sideBarValue
 
-  route.subscribe(value => {
-    routeValue = value
-  })
-
-  route.subscribe(value => {
-    routeValue = value
+  sideBar.subscribe(value => {
+    sideBarValue = value
   })
 </script>
 
@@ -82,18 +78,16 @@
   <ul>
     <li>
       <a
-        class:selected={routeValue === 'list-rooms'}
-        on:click={updateRoute('list-rooms')}
-        href="#"
+        class:selected={sideBarValue === 'list-rooms'}
+        on:click={updateSideBar('list-rooms')}
       >
         salas
       </a>
     </li>
     <li>
       <a
-        on:click={updateRoute('create-room')}
-        class:selected={routeValue === 'create-room'}
-        href="#"
+        class:selected={sideBarValue === 'create-room'}
+        on:click={updateSideBar('create-room')}
       >
         gerenciar
       </a>
