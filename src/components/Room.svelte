@@ -104,7 +104,7 @@
 
   const pathRoom = getCurrentPath()
 
-  if (pathRoom === slugify(name)) {
+  if (pathRoom === slugify(name) && !active) {
     enterRoom()
   }
 </script>
