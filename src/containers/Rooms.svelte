@@ -56,11 +56,6 @@
 
     const notPinnedRooms = allRooms
       .filter(({ id, globalyPinnedRoom }) => !pinnedRooms[id] && !globalyPinnedRoom)
-      .sort((base, compared) => {
-        const baseUsersCount = Object.keys(base.users || {}).length
-        const comparedUsersCount = Object.keys(compared.users || {}).length
-        return comparedUsersCount - baseUsersCount
-      })
 
     filteredRooms = filterRooms([
       ...globalyPinnedRooms,
