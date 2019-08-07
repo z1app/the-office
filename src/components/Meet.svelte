@@ -24,6 +24,10 @@
         width: "100%",
         height: "80%",
         parentNode: meetDiv,
+        configOverwrite: {
+          startWithAudioMuted: true,
+          startWithVideoMuted: true,
+        },
         interfaceConfigOverwrite: {
           TOOLBAR_BUTTONS: [
             'camera',
