@@ -25,7 +25,6 @@
     padding: 0;
   }
 
-  /* clearfix */
   ul::after {
     content: '';
     display: block;
@@ -63,20 +62,24 @@
   }
 
   .default-link {
-    display: inline-block;
+    display: inline;
   }
 
   .nes-icon.is-medium {
-    top: -16px;
     margin-right: 32px;
-    margin-bottom: 0px;
+    margin-bottom: 14px;
     transform: scale(3);
+  }
+
+  .slack {
+    display: inline;
   }
 </style>
 
 <nav>
   <ul>
     <li>
+      <!-- svelte-ignore a11y-missing-attribute -->
       <a
         class:selected={sideBarValue === 'list-rooms'}
         on:click={updateSideBar('list-rooms')}
@@ -93,6 +96,18 @@
       </a>
     </li>
     <li class="f-right">
+      <a
+        class="default-link"
+        href="https://pagarme.slack.com/messages/CLZDPELNM"
+        target="_blank"
+      >
+        <img
+          class="slack"
+          src="images/slack.png"
+          alt="slack logo"
+          width="50"
+        />
+      </a>
       <a
         class="default-link"
         href="https://github.com/lucianopf/escritorio-pagarme"
