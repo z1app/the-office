@@ -25,7 +25,6 @@
         height: "80%",
         parentNode: meetDiv,
         configOverwrite: {
-          startWithAudioMuted: true,
           startWithVideoMuted: true,
         },
         interfaceConfigOverwrite: {
