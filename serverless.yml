@@ -1,7 +1,7 @@
 name: escritorio
 
 escritorio:
-  component: '@lucianopf/website'
+  component: '@lucianopf/website@3.0.12'
   inputs:
     code:
       src: public

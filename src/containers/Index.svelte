@@ -84,10 +84,13 @@
     margin: 0;
     transition: all 0.75s;
   }
+  .version {
+    text-align: center;
+    font-size: 14px;
+  }
 </style>
 
 <Nav/>
-
 <main>
   {#if userId}
     <div class="sidebar {collapsed ? 'collapsed' : ''}">
@@ -131,3 +134,4 @@
     </div>
   {/if}
 </main>
+<p class="version">version: {VERSION}</p>
