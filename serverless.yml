@@ -1,0 +1,9 @@
+name: escritorio
+
+escritorio:
+  component: '@lucianopf/website'
+  inputs:
+    code:
+      src: public
+      hook: npm run build
+    domain: escritorio.stg.pagarme.net
