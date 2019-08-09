@@ -22,10 +22,10 @@
     "start": "sirv public",
     "start:dev": "sirv public --dev",
     "now-build": "npm run build",
-    "deploy-functions": "firebase deploy --only functions",
-    "deploy-database": "firebase deploy --only database",
+    "deploy-functions": "firebase deploy --only functions --token \"$FIREBASE_TOKEN\"",
+    "deploy-database": "firebase deploy --only database --token \"$FIREBASE_TOKEN\"",
     "deploy-site": "serverless --debug",
-    "deploy": "npm run deploy-site && npm run deploy-functions && npm run deploy-databse"
+    "deploy": "npm run deploy-site && npm run deploy-functions && npm run deploy-database"
   },
   "dependencies": {
     "firebase": "6.1.1"
