@@ -13,15 +13,15 @@
   }
 
   div .tooltiptext {
-    visibility: hidden;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
+    margin-left: -40px;
+    margin-top: -80px;
+    max-width: 200px;
+    padding: 5px;
     position: absolute;
+    text-align: center;
+    visibility: hidden;
+    word-wrap: break-word;
     z-index: 1;
-    margin-top: -135px;
-    margin-left: -5px;
-    padding: 3px;
   }
 
   div:hover .tooltiptext {
@@ -36,7 +36,9 @@
     alt={user.name}
     style="image-rendering: pixelated;"
   />
-  <p class="tooltiptext nes-balloon from-left nes-pointer">
-    {user.name}
-  </p>
+  <div class="tooltiptext nes-balloon from-left nes-pointer">
+    <p>
+      {user.name}
+    </p>
+  </div>
 </div>
