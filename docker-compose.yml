@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+
+  client:
+    image: node:10.16.3-alpine
+    command: npm run dev
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/escritorio
+    working_dir: /escritorio
+
+  install:
+    image: node:10.16.3-alpine
+    command: npm i
+    volumes:
+      - .:/escritorio
+    working_dir: /escritorio
+

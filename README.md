@@ -39,15 +39,23 @@ The project is currently hosted at <a href="https://escritorio.pagarme.now.sh" t
 ### Local development
 
 1. Clone the repo (or fork)
-2. Navigate to the project folder `cd escritorio-pagarme`
-3. Install the dependencies `npm i`
-4. Start the development server `npm run dev`
-5. Head to `http://localhost:5000`
+2. Install the dependencies with `docker-compose run install`
+3. Start the development server with `docker-compose run client`
+4. Check which Network address is exposed on the output of the previous command, as below:
+
+```bash
+  Your application is ready~! 🚀
+
+    - Local:      http://localhost:5000
+    - Network:    http://172.23.0.2:5000
+```
+
+5. Head to the given **Network** in your browser.
 
 ## Contributors
 
-| [<img src="https://avatars1.githubusercontent.com/u/4103305?v=3&s=115"><br><sub>@allangrds</sub>](https://github.com/allangrds) | [<img src="https://avatars1.githubusercontent.com/u/19209246?v=3&s=115"><br><sub>@jeanaugustoos</sub>](https://github.com/jeanaugustoos) | [<img src="https://avatars1.githubusercontent.com/u/8422610?v=3&s=115"><br><sub>@thor99</sub>](https://github.com/thor99) | [<img src="https://avatars1.githubusercontent.com/u/5989971?v=3&s=115"><br><sub>@MatheusVellone</sub>](https://github.com/MatheusVellone) |
-| :---: | :---: | :---: | :---: |
+| [<img src="https://avatars1.githubusercontent.com/u/4103305?v=3&s=115"><br><sub>@allangrds</sub>](https://github.com/allangrds) | [<img src="https://avatars1.githubusercontent.com/u/19209246?v=3&s=115"><br><sub>@jeanaugustoos</sub>](https://github.com/jeanaugustoos) | [<img src="https://avatars1.githubusercontent.com/u/8422610?v=3&s=115"><br><sub>@thor99</sub>](https://github.com/thor99) | [<img src="https://avatars1.githubusercontent.com/u/5989971?v=3&s=115"><br><sub>@MatheusVellone</sub>](https://github.com/MatheusVellone) | [<img src="https://github.com/devdrops.png" width="130px;"/><br><sub>@devdrops</sub>](https://github.com/devdrops) | [<img src="https://github.com/miguelssrs.png" width="130px;"/><br><sub>@miguelssrs</sub>](https://github.com/miguelssrs) |
+| :---: | :---: | :---: | :---: | :---: | :---: |
 
 
 ## Author
