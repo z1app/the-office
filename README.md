@@ -54,8 +54,8 @@ The project is currently hosted at <a href="https://escritorio.pagarme.now.sh" t
 
 ## Contributors
 
-| [<img src="https://avatars1.githubusercontent.com/u/4103305?v=3&s=115"><br><sub>@allangrds</sub>](https://github.com/allangrds) | [<img src="https://avatars1.githubusercontent.com/u/19209246?v=3&s=115"><br><sub>@jeanaugustoos</sub>](https://github.com/jeanaugustoos) | [<img src="https://avatars1.githubusercontent.com/u/8422610?v=3&s=115"><br><sub>@thor99</sub>](https://github.com/thor99) | [<img src="https://avatars1.githubusercontent.com/u/5989971?v=3&s=115"><br><sub>@MatheusVellone</sub>](https://github.com/MatheusVellone) |
-| :---: | :---: | :---: | :---: |
+| [<img src="https://avatars1.githubusercontent.com/u/4103305?v=3&s=115"><br><sub>@allangrds</sub>](https://github.com/allangrds) | [<img src="https://avatars1.githubusercontent.com/u/19209246?v=3&s=115"><br><sub>@jeanaugustoos</sub>](https://github.com/jeanaugustoos) | [<img src="https://avatars1.githubusercontent.com/u/8422610?v=3&s=115"><br><sub>@thor99</sub>](https://github.com/thor99) | [<img src="https://avatars1.githubusercontent.com/u/5989971?v=3&s=115"><br><sub>@MatheusVellone</sub>](https://github.com/MatheusVellone) | [<img src="https://github.com/devdrops.png" width="130px;"/><br><sub>@devdrops</sub>](https://github.com/devdrops) | [<img src="https://github.com/miguelssrs.png" width="130px;"/><br><sub>@miguelssrs</sub>](https://github.com/miguelssrs) |
+| :---: | :---: | :---: | :---: | :---: | :---: |
 
 
 ## Author
