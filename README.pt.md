@@ -38,11 +38,19 @@ O projeto está hospedado em <a href="https://escritorio.pagarme.now.sh" target=
 
 ### Rodando localmente
 
-1. Clone o repositório (ou fork)
-2. Entre no projeto `cd escritorio-pagarme`
-3. Instale as dependências `npm i`
-4. Inicie o servidor local `npm run dev`
-5. Visite `http://localhost:5000`
+1. Clone o repositório (ou fork).
+2. Instale as dependências executando `docker-compose run install`.
+3. Inicie o servidor local executando `docker-compose run client`.
+4. Confira o endereço de Network exposto na saída do comando anterior, como abaixo:
+
+```bash
+  Your application is ready~! 🚀
+
+    - Local:      http://localhost:5000
+    - Network:    http://172.23.0.2:5000
+```
+
+5. Abra no seu browser o endereço indicado no **Network**.
 
 ## Contribuidores
 
