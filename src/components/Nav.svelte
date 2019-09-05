@@ -110,7 +110,7 @@
       </a>
       <a
         class="default-link"
-        href="https://github.com/lucianopf/escritorio-pagarme"
+        href="https://github.com/pagarme/the-office"
         target="_blank"
       >
         <i class="nes-icon github is-medium"></i>
