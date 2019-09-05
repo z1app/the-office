@@ -1,0 +1,9 @@
+name: escritorio
+
+escritorio:
+  component: '@serverless/website@3.1.0'
+  inputs:
+    code:
+      src: public
+      hook: npm run build
+    domain: escritorio.stg.pagarme.net
