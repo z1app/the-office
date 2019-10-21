@@ -26,7 +26,8 @@
       }
 
       if (room.users) {
-        const usersInRoom = Object.values(room.users).map(user => user.name.toLowerCase())
+        const usersInRoom = Object.values(room.users)
+          .map(user => user.name.toLowerCase())
 
         const filterMatch = usersInRoom.some(user => nameRegex.test(user))
 
@@ -51,11 +52,15 @@
     const globalyPinnedRooms = allRooms
       .filter(({ globalyPinnedRoom }) => !!globalyPinnedRoom)
 
-    const localPinnedRooms = allRooms
-      .filter(({ id, globalyPinnedRoom }) => pinnedRooms[id] && !globalyPinnedRoom)
+    const localPinnedRooms = allRooms.filter(({
+      id,
+      globalyPinnedRoom ,
+    }) => pinnedRooms[id] && !globalyPinnedRoom)
 
-    const notPinnedRooms = allRooms
-      .filter(({ id, globalyPinnedRoom }) => !pinnedRooms[id] && !globalyPinnedRoom)
+    const notPinnedRooms = allRooms.filter(({
+      id,
+      globalyPinnedRoom,
+    }) => !pinnedRooms[id] && !globalyPinnedRoom)
 
     filteredRooms = filterRooms([
       ...globalyPinnedRooms,

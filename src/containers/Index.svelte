@@ -20,21 +20,17 @@
   let activeRoomName = ''
   let pinnedRooms = {}
 
-  Users.watch(
-    `/${userId}`,
-    false,
-    remoteUser => {
-      activeRoom = remoteUser.activeRoom
-      activeRoomName = remoteUser.activeRoomName
-      pinnedRooms = remoteUser.pinnedRooms || {}
-    }
-  )
+  Users.watch(`/${userId}`, false, remoteUser => {
+    activeRoom = remoteUser.activeRoom
+    activeRoomName = remoteUser.activeRoomName
+    pinnedRooms = remoteUser.pinnedRooms || {}
+  })
 
   if (userId) {
     Users.onDisconect(userId)
   }
 
-  function collapse () {
+  function collapse() {
     collapsed = !collapsed
   }
 </script>
@@ -90,30 +86,18 @@
   }
 </style>
 
-<Nav/>
+<Nav />
 <main>
   {#if userId}
     <div class="sidebar {collapsed ? 'collapsed' : ''}">
       {#if sideBarValue === 'list-rooms'}
-        <Rooms
-          {activeRoomName}
-          {activeRoom}
-          {pinnedRooms}
-        />
+        <Rooms {activeRoomName} {activeRoom} {pinnedRooms} />
       {:else}
         <Manage />
       {/if}
     </div>
-    <button
-      type="button"
-      class="nes-btn collapse"
-      on:click={collapse}
-    >
-      {#if collapsed}
-        {'>'}
-      {:else}
-        {'<'}
-      {/if}
+    <button type="button" class="nes-btn collapse" on:click={collapse}>
+      {#if collapsed}{'>'}{:else}{'<'}{/if}
     </button>
     <div class="meet">
       {#if activeRoom}

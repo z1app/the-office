@@ -2,11 +2,11 @@ import baseModel from './base'
 import { database } from '../services/firebase'
 
 class Usersmodel extends baseModel {
-  constructor (modelName = 'users') {
+  constructor(modelName = 'users') {
     super(modelName)
   }
 
-  onDisconect (uid) {
+  onDisconect(uid) {
     database.ref('.info/connected')
       .on(
         'value',

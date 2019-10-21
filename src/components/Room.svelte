@@ -2,16 +2,9 @@
   import UserProfile from './UserProfile.svelte'
   import { Rooms, Users } from '../models'
 
-  import {
-    getUserProfile,
-    getUserId,
-    setUserProfile,
-  } from '../services/local'
+  import { getUserProfile, getUserId, setUserProfile } from '../services/local'
 
-  import {
-    arrayrify,
-    slugify
-  } from '../services/helpers'
+  import { arrayrify, slugify } from '../services/helpers'
 
   export let name
   export let users
@@ -20,7 +13,7 @@
   export let id
   export let globalyPinnedRoom
 
-  function updateRoomPath (name) {
+  function updateRoomPath(name) {
     if (!name) {
       history.pushState({}, 'Index', '#/')
     } else {
@@ -28,7 +21,7 @@
     }
   }
 
-  function enterRoom () {
+  function enterRoom() {
     const userProfile = getUserProfile()
     return Users.get(userProfile.id)
       .then(user => {
@@ -51,22 +44,16 @@
       })
       .then(() => {
         return Promise.all([
-          Users.update(
-            userProfile.id,
-            {
-              activeRoom: id,
-              activeRoomName: name,
-            }
-          ),
-          Rooms.update(
-            `${id}/users/${userProfile.id}`,
-            userProfile
-          )
+          Users.update(userProfile.id, {
+            activeRoom: id,
+            activeRoomName: name,
+          }),
+          Rooms.update(`${id}/users/${userProfile.id}`, userProfile),
         ])
       })
   }
 
-  function leaveRoom () {
+  function leaveRoom() {
     const userProfile = getUserProfile()
 
     setUserProfile({
@@ -78,22 +65,19 @@
 
     return Promise.all([
       Rooms.delete(`${id}/users/${userProfile.id}`),
-      Users.update(
-        userProfile.id,
-        {
-          activeRoom: null,
-          activeRoomName: null,
-        }
-      )
+      Users.update(userProfile.id, {
+        activeRoom: null,
+        activeRoomName: null,
+      }),
     ])
   }
 
-  function togglePin () {
+  function togglePin() {
     const uid = getUserId()
     Users.set(`${uid}/pinnedRooms/${id}`, !pinnedRoom)
   }
 
-  function getCurrentPath () {
+  function getCurrentPath() {
     const { hash } = window.location
     if (!hash || !hash.length) {
       return false
@@ -122,10 +106,7 @@
 </style>
 
 {#if globalyPinnedRoom}
-  <i
-    class="nes-icon is-small star"
-    alt="globally_pinned_room"
-  />
+  <i class="nes-icon is-small star" alt="globally_pinned_room" />
 {:else}
   <i
     class="nes-icon is-small heart"
@@ -140,19 +121,11 @@
   {/each}
   <br />
   {#if active}
-    <button
-      type="button"
-      class="nes-btn is-error"
-      on:click={leaveRoom}
-    >
+    <button type="button" class="nes-btn is-error" on:click={leaveRoom}>
       sair
     </button>
   {:else}
-    <button
-      type="button"
-      class="nes-btn is-primary"
-      on:click={enterRoom}
-    >
+    <button type="button" class="nes-btn is-primary" on:click={enterRoom}>
       entrar
     </button>
   {/if}
