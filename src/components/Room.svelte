@@ -13,7 +13,7 @@
   export let id
   export let globalyPinnedRoom
 
-  function updateRoomPath(name) {
+  function updateRoomPath (name) {
     if (!name) {
       history.pushState({}, 'Index', '#/')
     } else {
@@ -21,10 +21,10 @@
     }
   }
 
-  function enterRoom() {
+  function enterRoom () {
     const userProfile = getUserProfile()
     return Users.get(userProfile.id)
-      .then(user => {
+      .then((user) => {
         if (user.activeRoom) {
           return Promise.all([
             Rooms.delete(`${user.activeRoom}/users/${userProfile.id}`),
@@ -53,7 +53,7 @@
       })
   }
 
-  function leaveRoom() {
+  function leaveRoom () {
     const userProfile = getUserProfile()
 
     setUserProfile({
@@ -72,12 +72,12 @@
     ])
   }
 
-  function togglePin() {
+  function togglePin () {
     const uid = getUserId()
     Users.set(`${uid}/pinnedRooms/${id}`, !pinnedRoom)
   }
 
-  function getCurrentPath() {
+  function getCurrentPath () {
     const { hash } = window.location
     if (!hash || !hash.length) {
       return false

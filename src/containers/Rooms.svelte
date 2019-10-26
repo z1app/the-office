@@ -42,7 +42,7 @@
   Rooms.watch(
     '/',
     true,
-    remoteRooms => {
+    (remoteRooms) => {
       allRooms = remoteRooms
       loading = false
     }
@@ -54,7 +54,7 @@
 
     const localPinnedRooms = allRooms.filter(({
       id,
-      globalyPinnedRoom ,
+      globalyPinnedRoom,
     }) => pinnedRooms[id] && !globalyPinnedRoom)
 
     const notPinnedRooms = allRooms.filter(({

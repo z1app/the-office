@@ -1,7 +1,7 @@
 <script>
   import { Rooms } from '../models'
   import { getUserId } from '../services/local'
-  import { sideBar } from '../services/store.js'
+  import { sideBar } from '../services/store'
 
   let roomName = ''
 

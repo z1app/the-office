@@ -1,5 +1,5 @@
 <script>
-  import { authWithGoogle, getUser, authLogout } from '../services/firebase'
+  import { authWithGoogle, authLogout } from '../services/firebase'
 
   import {
     setUserProfile,
@@ -17,9 +17,9 @@
     'mundipagg.com',
   ]
 
-  function login() {
+  function login () {
     return authWithGoogle()
-      .then(response => {
+      .then((response) => {
         const { profile } = response.additionalUserInfo
         const { name, email, picture } = profile
 
@@ -33,9 +33,9 @@
         }
         const { uid } = response.user
         const userProfile = {
-          name: name,
-          email: email,
-          picture: picture,
+          name,
+          email,
+          picture,
           id: uid,
         }
         setUserProfile(userProfile)
@@ -46,7 +46,7 @@
       .then(() => window.location.reload())
   }
 
-  function logout() {
+  function logout () {
     clearUser()
     logged = false
     return authLogout().then(() => window.location.reload())

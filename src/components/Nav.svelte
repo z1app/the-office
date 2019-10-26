@@ -1,14 +1,14 @@
 <script>
   import Login from '../containers/Login.svelte'
-  import { sideBar } from '../services/store.js'
+  import { sideBar } from '../services/store'
 
-  function updateSideBar(name) {
+  function updateSideBar (name) {
     return () => sideBar.update(() => name)
   }
 
   let sideBarValue
 
-  sideBar.subscribe(value => {
+  sideBar.subscribe((value) => {
     sideBarValue = value
   })
 </script>

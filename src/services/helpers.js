@@ -1,18 +1,18 @@
-function arrayrify(obj) {
+function arrayrify (obj) {
   try {
-    return Object.keys(obj).map(key => {
+    return Object.keys(obj).map((key) => {
       if (!obj[key].length) {
         return Object.assign(obj[key], { id: key })
-      } else {
-        return Object.assign({ value: obj[key] }, { id: key })
       }
+
+      return Object.assign({ value: obj[key] }, { id: key })
     })
   } catch (e) {
     return []
   }
 }
 
-function safeArrayrify(obj) {
+function safeArrayrify (obj) {
   try {
     obj = obj && obj.val ? obj.val() : obj
     if (obj && Object.keys(obj).length) {
@@ -24,14 +24,14 @@ function safeArrayrify(obj) {
   }
 }
 
-function unArrayrify(arr) {
+function unArrayrify (arr) {
   return arr.reduce((result, actual) => {
     result[actual.id] = Object.assign(actual, { id: undefined })
     return result
   }, {})
 }
 
-function slugify(string) {
+function slugify (string) {
   return string.toLowerCase()
     .replace(/[àÀáÁâÂãäÄÅåª]+/g, 'a')
     .replace(/[èÈéÉêÊëË]+/g, 'e')

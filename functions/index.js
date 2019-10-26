@@ -1,10 +1,11 @@
 const functions = require('firebase-functions')
 const admin = require('firebase-admin')
+
 admin.initializeApp(functions.config().firebase)
 
 const userOnlineRef = functions.database.ref('/users/{userId}/online')
 
-const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
+const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 
 const allowedDomains = [
   'pagar.me',
@@ -39,7 +40,7 @@ exports.removeFromRooms = userOnlineRef.onUpdate((change, context) => {
           .ref(`users/${userId}/online`)
           .once('value')
           .then(activeSnap => activeSnap && activeSnap.val())
-          .then(activeRoom => {
+          .then((activeRoom) => {
             if (activeRoom) {
               return Promise.all([
                 admin.database()

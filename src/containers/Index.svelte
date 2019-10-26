@@ -5,22 +5,22 @@
   import Manage from './Manage.svelte'
   import { Users } from '../models'
   import { getUserId } from '../services/local'
-  import { sideBar } from '../services/store.js'
+  import { sideBar } from '../services/store'
 
   let sideBarValue
 
-  sideBar.subscribe(value => {
+  sideBar.subscribe((value) => {
     sideBarValue = value
   })
 
-  let userId = getUserId()
+  const userId = getUserId()
 
   let collapsed = false
   let activeRoom = false
   let activeRoomName = ''
   let pinnedRooms = {}
 
-  Users.watch(`/${userId}`, false, remoteUser => {
+  Users.watch(`/${userId}`, false, (remoteUser) => {
     activeRoom = remoteUser.activeRoom
     activeRoomName = remoteUser.activeRoomName
     pinnedRooms = remoteUser.pinnedRooms || {}
@@ -30,7 +30,7 @@
     Users.onDisconect(userId)
   }
 
-  function collapse() {
+  function collapse () {
     collapsed = !collapsed
   }
 </script>

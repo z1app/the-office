@@ -14,7 +14,7 @@
       noJitsi = true
       return
     }
-    function getMeetingOptions(roomId) {
+    function getMeetingOptions (roomId) {
       return {
         roomName: roomId,
         width: '100%',
