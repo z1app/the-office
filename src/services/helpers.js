@@ -1,11 +1,11 @@
 function arrayrify (obj) {
   try {
-    return Object.keys(obj).map(key => {
+    return Object.keys(obj).map((key) => {
       if (!obj[key].length) {
         return Object.assign(obj[key], { id: key })
-      } else {
-        return Object.assign({value: obj[key]}, { id: key })
       }
+
+      return Object.assign({ value: obj[key] }, { id: key })
     })
   } catch (e) {
     return []

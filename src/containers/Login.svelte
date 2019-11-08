@@ -1,9 +1,5 @@
 <script>
-  import {
-    authWithGoogle,
-    getUser,
-    authLogout,
-  } from '../services/firebase'
+  import { authWithGoogle, authLogout } from '../services/firebase'
 
   import {
     setUserProfile,
@@ -23,13 +19,9 @@
 
   function login () {
     return authWithGoogle()
-      .then(response => {
+      .then((response) => {
         const { profile } = response.additionalUserInfo
-        const {
-          name,
-          email,
-          picture,
-        } = profile
+        const { name, email, picture } = profile
 
         const emailDomain = email.split('@').pop()
 
@@ -41,9 +33,9 @@
         }
         const { uid } = response.user
         const userProfile = {
-          name: name,
-          email: email,
-          picture: picture,
+          name,
+          email,
+          picture,
           id: uid,
         }
         setUserProfile(userProfile)
@@ -57,27 +49,16 @@
   function logout () {
     clearUser()
     logged = false
-    return authLogout()
-      .then(() => window.location.reload())
+    return authLogout().then(() => window.location.reload())
   }
 
   let logged = !!getUserId()
 </script>
 
 {#if logged}
-  <button
-    type="button"
-    class="nes-btn is-error"
-    on:click={logout}
-  >
+  <button type="button" class="nes-btn is-error" on:click={logout}>
     logout
   </button>
 {:else}
-  <button
-    type="button"
-    class="nes-btn"
-    on:click={login}
-  >
-    login
-  </button>
+  <button type="button" class="nes-btn" on:click={login}>login</button>
 {/if}

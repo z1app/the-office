@@ -5,30 +5,26 @@
   import Manage from './Manage.svelte'
   import { Users } from '../models'
   import { getUserId } from '../services/local'
-  import { sideBar } from '../services/store.js'
+  import { sideBar } from '../services/store'
 
   let sideBarValue
 
-  sideBar.subscribe(value => {
+  sideBar.subscribe((value) => {
     sideBarValue = value
   })
 
-  let userId = getUserId()
+  const userId = getUserId()
 
   let collapsed = false
   let activeRoom = false
   let activeRoomName = ''
   let pinnedRooms = {}
 
-  Users.watch(
-    `/${userId}`,
-    false,
-    remoteUser => {
-      activeRoom = remoteUser.activeRoom
-      activeRoomName = remoteUser.activeRoomName
-      pinnedRooms = remoteUser.pinnedRooms || {}
-    }
-  )
+  Users.watch(`/${userId}`, false, (remoteUser) => {
+    activeRoom = remoteUser.activeRoom
+    activeRoomName = remoteUser.activeRoomName
+    pinnedRooms = remoteUser.pinnedRooms || {}
+  })
 
   if (userId) {
     Users.onDisconect(userId)
@@ -90,25 +86,17 @@
   }
 </style>
 
-<Nav/>
+<Nav />
 <main>
   {#if userId}
     <div class="sidebar {collapsed ? 'collapsed' : ''}">
       {#if sideBarValue === 'list-rooms'}
-        <Rooms
-          {activeRoomName}
-          {activeRoom}
-          {pinnedRooms}
-        />
+        <Rooms {activeRoomName} {activeRoom} {pinnedRooms} />
       {:else}
         <Manage />
       {/if}
     </div>
-    <button
-      type="button"
-      class="nes-btn collapse"
-      on:click={collapse}
-    >
+    <button type="button" class="nes-btn collapse" on:click={collapse}>
       {#if collapsed}
         {'>'}
       {:else}

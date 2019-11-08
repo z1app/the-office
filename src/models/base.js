@@ -25,19 +25,19 @@ class BaseModel {
         .child(value)
         .once('value')
         .then((snap) => {
-          let tmpData = {}
+          const tmpData = {}
           tmpData[snap.key] = snap.val()
           return tmpData
         })
         .then(safeArrayrify)
-    } else {
-      return this.Model
-        .orderByChild(attr)
-        .startAt(`${value}`)
-        .endAt(`${value}\uf8ff`)
-        .once('value')
-        .then(safeArrayrify)
     }
+
+    return this.Model
+      .orderByChild(attr)
+      .startAt(`${value}`)
+      .endAt(`${value}\uf8ff`)
+      .once('value')
+      .then(safeArrayrify)
   }
 
   update (id, data) {
@@ -56,7 +56,7 @@ class BaseModel {
   get (id = '/', array = false) {
     return this.Model.child(id)
       .once('value')
-      .then(res => {
+      .then((res) => {
         if (res && res.val && res.val()) {
           if (!res.val().replace && Object.keys(res.val()).length) {
             if (array) {
