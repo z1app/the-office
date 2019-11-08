@@ -97,7 +97,11 @@
       {/if}
     </div>
     <button type="button" class="nes-btn collapse" on:click={collapse}>
-      {#if collapsed}{'>'}{:else}{'<'}{/if}
+      {#if collapsed}
+        {'>'}
+      {:else}
+        {'<'}
+      {/if}
     </button>
     <div class="meet">
       {#if activeRoom}
