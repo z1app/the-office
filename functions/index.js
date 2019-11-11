@@ -37,7 +37,7 @@ exports.removeFromRooms = userOnlineRef.onUpdate((change, context) => {
     .then((userState) => {
       if (!userState) {
         return admin.database()
-          .ref(`users/${userId}/online`)
+          .ref(`users/${userId}/activeRoom`)
           .once('value')
           .then(activeSnap => activeSnap && activeSnap.val())
           .then((activeRoom) => {
