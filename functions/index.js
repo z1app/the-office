@@ -73,3 +73,57 @@ exports.ensureAllowedDomains = functions.auth
       admin.auth().updateUser(uid, { disabled: true }),
     ])
   })
+
+function arrayrify (obj) {
+  try {
+    return Object.keys(obj).map((key) => {
+      if (!obj[key].length) {
+        return Object.assign(obj[key], { id: key })
+      }
+
+      return Object.assign({ value: obj[key] }, { id: key })
+    })
+  } catch (e) {
+    return []
+  }
+}
+
+function safeArrayrify (obj) {
+  try {
+    obj = obj && obj.val ? obj.val() : obj
+    if (obj && Object.keys(obj).length) {
+      return arrayrify(obj)
+    }
+    return []
+  } catch (e) {
+    return []
+  }
+}
+
+exports.refreshOfflineUsers = functions.https.onRequest((req, res) => {
+  return admin.database()
+    .ref(`users`)
+    .orderByChild('activeRoom')
+    .startAt('!')
+    .endAt('~')
+    .once('value')
+    .then(safeArrayrify)
+    .then((users) => {
+      return Promise.all(
+        users.map(user => {
+          if (user.online) {
+            return true
+          }
+          return Promise.all([
+            admin.database()
+              .ref(`rooms/${user.activeRoom}/users/${user.id}`)
+              .set(null),
+            admin.database()
+              .ref(`users/${user.id}/activeRoom`)
+              .set(null),
+          ])
+        })
+      )
+    })
+    .then(() => res.send('Done!'))
+})
