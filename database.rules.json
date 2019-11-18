@@ -3,13 +3,14 @@
     "rooms": {
       ".read": "auth.uid != null && root.child('blockedUsers').child(auth.uid).val() != true",
       "$roomId": {
-        ".write": "!data.exists() && auth.uid != null && root.child('blockedUsers').child(auth.uid).val() != true",
+        ".write": "(!data.exists() || data.child('createdBy').val() === auth.uid) && auth.uid != null && root.child('blockedUsers').child(auth.uid).val() != true",
         "users": {
           "$uid": {
             ".write": "auth.uid == $uid && auth.uid != null && root.child('blockedUsers').child(auth.uid).val() != true"
           }
         }
-      }
+      },
+      ".indexOn": ["createdBy"]
     },
     "users": {
       "$uid": {
