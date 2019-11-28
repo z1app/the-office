@@ -29,21 +29,21 @@
   }
 </style>
 
-<div class="nes-container with-title is-centered">
+<div class="nes-container is-dark with-title is-centered">
   <p class="title">criar sala</p>
-  <div class="nes-field">
+  <div class="nes-field is-dark">
     <label for="name_field">nome</label>
     <input
       type="text"
       id="name_field"
-      class="nes-input"
+      class="nes-input is-dark"
       bind:value={roomName}
     />
   </div>
   <div class='actions'>
     <button
       type="button"
-      class="nes-btn is-primary"
+      class="nes-btn is-success"
       on:click={createRoom}
     >
       criar

@@ -82,7 +82,7 @@
     <p>loading...</p>
   {:else}
     <input
-      class='nes-input filter-input'
+      class='nes-input is-dark filter-input'
       placeholder='Filtrar salas'
       type='text'
       bind:value="{filters.name}"
