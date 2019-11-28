@@ -18,6 +18,8 @@
     border-bottom: 1px solid rgba(255, 62, 0, 0.1);
     font-weight: 300;
     padding: 0 1em;
+    padding-top: 10px;
+    background-color: #212529;
   }
 
   ul {
@@ -34,6 +36,7 @@
   li {
     display: block;
     float: left;
+    color: white;
   }
 
   .selected {
@@ -46,7 +49,7 @@
     content: '';
     width: calc(100% - 1em);
     height: 2px;
-    background-color: rgb(255, 62, 0);
+    background-color: #92cc41;
     display: block;
     bottom: -1px;
   }
@@ -97,13 +100,6 @@
       </a>
     </li>
     <li class="f-right">
-      <a
-        class="default-link"
-        href="https://pagarme.slack.com/messages/CLZDPELNM"
-        target="_blank"
-      >
-        <img class="slack" src="images/slack.png" alt="slack logo" width="50" />
-      </a>
       <a
         class="default-link"
         href="https://github.com/pagarme/the-office"
