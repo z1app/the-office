@@ -2,11 +2,14 @@
   import { Rooms } from '../models'
   import { getUserId } from '../services/local'
   import { sideBar } from '../services/store'
+  import Container from './Container.svelte'
+  import InputText from './InputText.svelte'
 
   let roomName = ''
   const userId = getUserId()
 
   function createRoom () {
+    console.log('ROOMNAME ->', roomName)
     if (!roomName || roomName.length < 3) {
       window.alert('O nome de uma nova sala deve ter no mínimo 3 caracteres')
       return false
@@ -29,17 +32,12 @@
   }
 </style>
 
-<div class="nes-container with-title is-centered">
+<Container>
   <p class="title">criar sala</p>
-  <div class="nes-field">
-    <label for="name_field">nome</label>
-    <input
-      type="text"
-      id="name_field"
-      class="nes-input"
-      bind:value={roomName}
-    />
-  </div>
+  <InputText
+    label='nome'
+    bind:value={roomName}
+  />
   <div class='actions'>
     <button
       type="button"
@@ -49,4 +47,4 @@
       criar
     </button>
   </div>
-</div>
+</Container>

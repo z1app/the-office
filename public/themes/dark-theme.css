@@ -1,0 +1,23 @@
+body {
+  padding-top: 0px;
+  color: white;
+  background-color: #212529 !important;
+}
+
+nav {
+  padding-top: 10px !important;
+  background-color: #212529 !important;
+  font-weight: 300;
+}
+
+li {
+  color: white;
+}
+
+.selected::after {
+  background-color: #92cc41 !important;
+}
+
+main {
+  background-color: #212529 !important;
+}

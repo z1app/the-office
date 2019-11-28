@@ -36,5 +36,5 @@
     alt={user.name}
     style="image-rendering: pixelated;"
   />
-  <p class="tooltiptext nes-balloon from-left nes-pointer">{user.name}</p>
+  <p class="nes-text is-primary tooltiptext nes-balloon from-left nes-pointer">{user.name}</p>
 </div>

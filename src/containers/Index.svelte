@@ -1,8 +1,12 @@
 <script>
   import Nav from '../components/Nav.svelte'
   import Meet from '../components/Meet.svelte'
+  import Container from '../components/Container.svelte'
+  import Button from '../components/Button.svelte'
   import Rooms from './Rooms.svelte'
   import Manage from './Manage.svelte'
+  import Customize from './Customize.svelte'
+  import Theme from './Theme.svelte'
   import { Users } from '../models'
   import { getUserId } from '../services/local'
   import { sideBar } from '../services/store'
@@ -47,7 +51,6 @@
     display: inline-block;
     position: relative;
     width: 100%;
-    background-color: white;
     padding: 1em;
     box-sizing: border-box;
   }
@@ -56,24 +59,9 @@
     position: relative;
     width: 25vw;
     min-width: 400px;
-    background-color: white;
     padding: 1em;
     box-sizing: border-box;
     transition: all 0.75s;
-  }
-  .login-notice {
-    margin: auto;
-    margin-top: 100px;
-  }
-  .meet-container {
-    position: sticky;
-    top: 20px;
-  }
-  .collapse {
-    position: sticky;
-    top: 20px;
-    margin-top: 20px;
-    height: 45px;
   }
   .collapsed {
     transform: translateX(-25vw);
@@ -90,40 +78,49 @@
   }
 </style>
 
+<Theme />
+
 <Nav {userId} />
+
 <main>
   {#if userId}
     <div class="sidebar {collapsed ? 'collapsed' : ''}">
       {#if sideBarValue === 'list-rooms'}
-        <Rooms {activeRoomName} {activeRoom} {pinnedRooms} />
-      {:else}
+        <Rooms {activeRoom} {pinnedRooms} />
+      {:else if sideBarValue === 'manage'}
         <Manage />
+      {:else if sideBarValue === 'customize'}
+        <Customize />
       {/if}
     </div>
-    <button type="button" class="nes-btn collapse" on:click={collapse}>
+    <Button
+      onClick={collapse}
+      classes='collapse'
+      type='blank'
+    >
       {#if collapsed}
         {'>'}
       {:else}
         {'<'}
       {/if}
-    </button>
+    </Button>
     <div class="meet">
       {#if activeRoom}
-        <div class="nes-container with-title is-centered meet-container">
+        <Container classes="meet-container">
           <p class="title">sala: {activeRoomName}</p>
           <Meet {activeRoom}/>
-        </div>
+        </Container>
       {:else}
-        <div class="nes-container with-title is-centered meet-container">
+        <Container classes="meet-container">
           <p class="title">sala: n/a</p>
           <p>Selecione uma das salas para poder conversar</p>
-        </div>
+        </Container>
       {/if}
     </div>
   {:else}
-    <div class="login-notice nes-container is-centered">
+    <Container classes="login-notice auto-margin">
       <p>Para prosseguir por favor faça o login.</p>
-    </div>
+    </Container>
   {/if}
 </main>
 <p class="version">version: {VERSION}</p>

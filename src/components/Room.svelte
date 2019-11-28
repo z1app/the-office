@@ -1,5 +1,7 @@
 <script>
   import UserProfile from './UserProfile.svelte'
+  import Container from './Container.svelte'
+  import Button from './Button.svelte'
   import { Rooms, Users } from '../models'
 
   import { getUserProfile, getUserId, setUserProfile } from '../services/local'
@@ -94,12 +96,9 @@
 </script>
 
 <style>
-  .container {
-    margin-bottom: 10px;
-  }
   .nes-icon {
     float: right;
-    top: 10px;
+    top: 20px;
     right: 10px;
     z-index: 1;
   }
@@ -114,19 +113,25 @@
     on:click={togglePin}
   />
 {/if}
-<div class="container nes-container with-title is-centered">
+<Container classes="margin-top">
   <p class="title">{name}</p>
   {#each arrayrify(users) as user}
     <UserProfile user={user}/>
   {/each}
   <br />
   {#if active}
-    <button type="button" class="nes-btn is-error" on:click={leaveRoom}>
+    <Button
+      onClick={leaveRoom}
+      type='danger'
+    >
       sair
-    </button>
+    </Button>
   {:else}
-    <button type="button" class="nes-btn is-primary" on:click={enterRoom}>
+    <Button
+      onClick={enterRoom}
+      type='default'
+    >
       entrar
-    </button>
+    </Button>
   {/if}
-</div>
+</Container>
