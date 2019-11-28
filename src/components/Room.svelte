@@ -114,7 +114,7 @@
     on:click={togglePin}
   />
 {/if}
-<div class="container nes-container with-title is-centered">
+<div class="container nes-container is-dark with-title is-centered">
   <p class="title">{name}</p>
   {#each arrayrify(users) as user}
     <UserProfile user={user}/>
@@ -125,7 +125,7 @@
       sair
     </button>
   {:else}
-    <button type="button" class="nes-btn is-primary" on:click={enterRoom}>
+    <button type="button" class="nes-btn is-success" on:click={enterRoom}>
       entrar
     </button>
   {/if}

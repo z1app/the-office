@@ -22,7 +22,7 @@
 </style>
 
 
-<div class="container nes-container with-title is-centered">
+<div class="container nes-container is-dark with-title is-centered">
   <p class="title">{room.name}</p>
   {#each arrayrify(room.users) as user}
     <UserProfile user={user}/>

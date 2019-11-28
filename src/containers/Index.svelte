@@ -42,12 +42,12 @@
   main {
     display: flex;
     justify-content: flex-start;
+    background-color: #212529;
   }
   .meet {
     display: inline-block;
     position: relative;
     width: 100%;
-    background-color: white;
     padding: 1em;
     box-sizing: border-box;
   }
@@ -56,7 +56,6 @@
     position: relative;
     width: 25vw;
     min-width: 400px;
-    background-color: white;
     padding: 1em;
     box-sizing: border-box;
     transition: all 0.75s;
@@ -88,6 +87,11 @@
     margin-top: 10px;
     font-size: 12px;
   }
+
+  .auto-margin {
+    margin: auto !important;
+    margin-top: 100px !important;
+  }
 </style>
 
 <Nav {userId} />
@@ -100,7 +104,7 @@
         <Manage />
       {/if}
     </div>
-    <button type="button" class="nes-btn collapse" on:click={collapse}>
+    <button type="button" class="nes-btn is-success collapse" on:click={collapse}>
       {#if collapsed}
         {'>'}
       {:else}
@@ -109,19 +113,19 @@
     </button>
     <div class="meet">
       {#if activeRoom}
-        <div class="nes-container with-title is-centered meet-container">
+        <div class="nes-container is-dark with-title is-centered meet-container">
           <p class="title">sala: {activeRoomName}</p>
           <Meet {activeRoom}/>
         </div>
       {:else}
-        <div class="nes-container with-title is-centered meet-container">
+        <div class="nes-container is-dark with-title is-centered meet-container">
           <p class="title">sala: n/a</p>
           <p>Selecione uma das salas para poder conversar</p>
         </div>
       {/if}
     </div>
   {:else}
-    <div class="login-notice nes-container is-centered">
+    <div class="login-notice nes-container is-dark is-centered auto-margin">
       <p>Para prosseguir por favor faça o login.</p>
     </div>
   {/if}
