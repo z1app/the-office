@@ -102,7 +102,7 @@
         href="https://pagarme.slack.com/messages/CLZDPELNM"
         target="_blank"
       >
-        <img class="slack" src="images/slack.png" alt="slack logo" width="50" />
+        <img class="slack" src="https://i.imgur.com/l6Pc8Fb.gif" alt="slack logo" width="50" />
       </a>
       <a
         class="default-link"

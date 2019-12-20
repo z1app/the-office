@@ -15,6 +15,7 @@
     'stone.co',
     'stone.com.br',
     'mundipagg.com',
+    'gmail.com',
   ]
 
   function login () {
