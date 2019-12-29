@@ -41,7 +41,7 @@ The project is currently hosted at <a href="https://escritorio.pagarme.now.sh" t
 1. Clone the repo (or fork)
 2. Install the dependencies with `docker-compose run install`
 3. Start the development server with `docker-compose run client`
-4. Copy your ip address and [setup Firebase](####Setting-up-Firebase)
+4. Copy your ip address and [setup Firebase](#Setting-up-Firebase)
 5. Check which Network address is exposed on the output of the previous command, as below:
 
 ```bash
