@@ -34,7 +34,7 @@ The initial goal of the project was to try out and learn most modern techs and f
 
 ## Usage
 
-The project is currently hosted at <a href="https://escritorio.pagarme.now.sh" target="_blank">escritorio.pagarme.now.sh</a> therefore to proceed to login you'll need a Stone.co valid domain.
+The project is currently hosted at <a href="https://escritorio.pagar.me" target="_blank">escritorio.pagar.me</a> therefore to proceed to login you'll need a Stone.co valid domain.
 
 ### Local development
 
