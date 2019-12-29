@@ -7,6 +7,7 @@
   }
 
   let sideBarValue
+  export let userId
 
   sideBar.subscribe((value) => {
     sideBarValue = value
@@ -78,24 +79,26 @@
 
 <nav>
   <ul>
-    <li>
-      <!-- svelte-ignore a11y-missing-attribute -->
-      <a
-        class:selected={sideBarValue === 'list-rooms'}
-        on:click={updateSideBar('list-rooms')}
-      >
-        salas
-      </a>
-    </li>
-    <li>
-      <!-- svelte-ignore a11y-missing-attribute -->
-      <a
-        class:selected={sideBarValue === 'create-room'}
-        on:click={updateSideBar('create-room')}
-      >
-        gerenciar
-      </a>
-    </li>
+    {#if userId}
+      <li>
+        <!-- svelte-ignore a11y-missing-attribute -->
+        <a
+          class:selected={sideBarValue === 'list-rooms'}
+          on:click={updateSideBar('list-rooms')}
+        >
+          salas
+        </a>
+      </li>
+      <li>
+        <!-- svelte-ignore a11y-missing-attribute -->
+        <a
+          class:selected={sideBarValue === 'create-room'}
+          on:click={updateSideBar('create-room')}
+        >
+          gerenciar
+        </a>
+      </li>
+    {/if}
     <li class="f-right">
       <a
         class="default-link"
