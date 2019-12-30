@@ -31,6 +31,8 @@ jobs:
             export AWS_REGION=$TEST_AWS_REGION
             sh ./.circleci/setup-tests.sh
             npm run deploy
+            aws cloudfront create-invalidation --distribution-id $PRODUCTION_DISTRIBUTION_ID --paths "*"
+
   build_prd:
     docker:
       - image: circleci/node:8.10
@@ -61,6 +63,7 @@ jobs:
             export AWS_SECRET_ACCESS_KEY=$STG_ACCESS_KEY_SECRET
             export AWS_REGION=$STG_AWS_REGION
             npm run deploy
+            aws cloudfront create-invalidation --distribution-id $PRODUCTION_DISTRIBUTION_ID --paths "*"
 
 workflows:
   version: 2
