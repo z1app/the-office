@@ -34,7 +34,7 @@ O projeto tem como uma das premissas utilizar tecnologias ultra modernas e não 
 
 ## Como utilizar
 
-O projeto está hospedado em <a href="https://escritorio.pagarme.now.sh" target="_blank">escritorio.pagarme.now.sh</a> entretanto para poder prosseguir com o login é necessário possuir um domínio do grupo Stone.co.
+O projeto está hospedado em <a href="https://escritorio.pagar.me" target="_blank">escritorio.pagar.me</a> entretanto para poder prosseguir com o login é necessário possuir um domínio do grupo Stone.co.
 
 ### Rodando localmente
 

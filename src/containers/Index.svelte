@@ -86,7 +86,7 @@
   }
 </style>
 
-<Nav />
+<Nav {userId} />
 <main>
   {#if userId}
     <div class="sidebar {collapsed ? 'collapsed' : ''}">

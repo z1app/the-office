@@ -34,14 +34,14 @@ The initial goal of the project was to try out and learn most modern techs and f
 
 ## Usage
 
-The project is currently hosted at <a href="https://escritorio.pagarme.now.sh" target="_blank">escritorio.pagarme.now.sh</a> therefore to proceed to login you'll need a Stone.co valid domain.
+The project is currently hosted at <a href="https://escritorio.pagar.me" target="_blank">escritorio.pagar.me</a> therefore to proceed to login you'll need a Stone.co valid domain.
 
 ### Local development
 
 1. Clone the repo (or fork)
 2. Install the dependencies with `docker-compose run install`
 3. Start the development server with `docker-compose run client`
-4. Copy your ip address and [setup Firebase](####Setting-up-Firebase)
+4. Copy your ip address and [setup Firebase](#Setting-up-Firebase)
 5. Check which Network address is exposed on the output of the previous command, as below:
 
 ```bash
