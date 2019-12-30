@@ -31,6 +31,7 @@ jobs:
             export AWS_REGION=$TEST_AWS_REGION
             sh ./.circleci/setup-tests.sh
             npm run deploy
+            PRODUCTION_DISTRIBUTION_ID=$PRODUCTION_DISTRIBUTION_ID node .circleci/invalidate-cdn
   build_prd:
     docker:
       - image: circleci/node:8.10
@@ -61,6 +62,7 @@ jobs:
             export AWS_SECRET_ACCESS_KEY=$STG_ACCESS_KEY_SECRET
             export AWS_REGION=$STG_AWS_REGION
             npm run deploy
+            PRODUCTION_DISTRIBUTION_ID=$PRODUCTION_DISTRIBUTION_ID node .circleci/invalidate-cdn
 
 workflows:
   version: 2
