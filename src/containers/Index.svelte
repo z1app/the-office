@@ -82,7 +82,8 @@
   }
   .version {
     text-align: center;
-    font-size: 14px;
+    margin-top: 10px;
+    font-size: 12px;
   }
 </style>
 
