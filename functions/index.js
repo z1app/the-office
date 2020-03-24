@@ -1,18 +1,12 @@
 const functions = require('firebase-functions')
 const admin = require('firebase-admin')
+const { allowedDomains } = require('./config')
 
 admin.initializeApp(functions.config().firebase)
 
 const userOnlineRef = functions.database.ref('/users/{userId}/online')
 
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
-
-const allowedDomains = [
-  'pagar.me',
-  'stone.co',
-  'stone.com.br',
-  'mundipagg.com',
-]
 
 exports.removeFromRooms = userOnlineRef.onUpdate((change, context) => {
   const { params } = context

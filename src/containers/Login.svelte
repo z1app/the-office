@@ -1,5 +1,6 @@
 <script>
   import { authWithGoogle, authLogout } from '../services/firebase'
+  import { allowedDomains } from '../../config'
 
   import {
     setUserProfile,
@@ -9,13 +10,6 @@
   } from '../services/local'
 
   import { Users } from '../models'
-
-  const allowedDomains = [
-    'pagar.me',
-    'stone.co',
-    'stone.com.br',
-    'mundipagg.com',
-  ]
 
   function login () {
     return authWithGoogle()

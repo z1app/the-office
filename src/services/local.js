@@ -1,5 +1,7 @@
-const USER_ID_KEY = 'escritorio-pagarme-user-id'
-const USER_PROFILE_KEY = 'escritorio-pagarme-user-profile'
+import { appSlug } from '../../config'
+
+const USER_ID_KEY = `${appSlug}-user-id`
+const USER_PROFILE_KEY = `${appSlug}-user-profile`
 
 export function getUserId () {
   return window.localStorage.getItem(USER_ID_KEY)
