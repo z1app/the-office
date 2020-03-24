@@ -6,6 +6,9 @@
   import { Users } from '../models'
   import { getUserId } from '../services/local'
   import { sideBar } from '../services/store'
+  import { appName } from '../../config'
+
+  document.title = appName
 
   let sideBarValue
 
