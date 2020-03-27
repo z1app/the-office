@@ -2,11 +2,11 @@ const appName = 'Escritório Pagar.me'
 const appSlug = 'escritorio-pagarme'
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyAzIRaAavq_t2GESw0QkWqIOj4EXKSJt_k',
-  databaseURL: 'https://pagarme-escritorio.firebaseio.com/',
-  projectId: 'project-637593188501',
-  authDomain: 'pagarme-escritorio.firebaseapp.com',
-  appId: '1:637593188501:web:c7b9d7d3c4f7d369',
+  apiKey: "AIzaSyCJGYxpgL8rW6GyliDZ9cPSrxxD2zAc31U",
+  authDomain: "treinamentos-escritorio.firebaseapp.com",
+  databaseURL: "https://treinamentos-escritorio.firebaseio.com",
+  projectId: "treinamentos-escritorio",
+  appId: "1:714837484243:web:8f8f2b98c524592c8f6a26"
 }
 
 const allowedDomains = [

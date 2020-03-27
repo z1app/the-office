@@ -1,5 +1,5 @@
 {
-  "name": "the-office",
+  "name": "treinamentos-pagarme",
   "version": "1.0.0",
   "devDependencies": {
     "aws-sdk": "2.644.0",
