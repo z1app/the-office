@@ -8,7 +8,7 @@ import replaceHtmlVars from 'rollup-plugin-replace-html-vars'
 
 const production = !process.env.ROLLUP_WATCH
 
-const appVersion = process.env.CIRCLE_TAG || 'dev'
+const appVersion = process.env.CIRCLE_TAG || 'game-night'
 
 const formatedAppVersion = `'${appVersion}'`
 

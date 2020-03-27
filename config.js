@@ -1,12 +1,12 @@
-const appName = 'Escritório Pagar.me'
-const appSlug = 'escritorio-pagarme'
+const appName = 'Game Night Pagar.me'
+const appSlug = 'game-night-pagarme'
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyAzIRaAavq_t2GESw0QkWqIOj4EXKSJt_k',
-  databaseURL: 'https://pagarme-escritorio.firebaseio.com/',
-  projectId: 'project-637593188501',
-  authDomain: 'pagarme-escritorio.firebaseapp.com',
-  appId: '1:637593188501:web:c7b9d7d3c4f7d369',
+  apiKey: "AIzaSyAL4xD4uOQnwxn3X2HskxjUswBwP-opX2M",
+  authDomain: "game-night-pagarme.firebaseapp.com",
+  databaseURL: "https://game-night-pagarme.firebaseio.com",
+  projectId: "game-night-pagarme",
+  appId: "1:538167281989:web:fa9bf66d7cb9299bc3562c"
 }
 
 const allowedDomains = [
