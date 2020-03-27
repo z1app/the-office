@@ -1,0 +1,12 @@
+{
+  "region": "us-east-1",
+  "privateZone": false,
+  "domain": "stg.pagarme.net",
+  "subdomains": [
+    {
+      "domain": "escritorio.stg.pagarme.net",
+      "type": "awsS3Website",
+      "s3BucketName": "vnyd5n-k7aai2b"
+    }
+  ]
+}

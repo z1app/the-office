@@ -6,6 +6,9 @@
   import { Users } from '../models'
   import { getUserId } from '../services/local'
   import { sideBar } from '../services/store'
+  import { appName } from '../../config'
+
+  document.title = appName
 
   let sideBarValue
 
@@ -82,7 +85,8 @@
   }
   .version {
     text-align: center;
-    font-size: 14px;
+    margin-top: 10px;
+    font-size: 12px;
   }
 </style>
 

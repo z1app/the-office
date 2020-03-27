@@ -4,10 +4,13 @@ import commonjs from 'rollup-plugin-commonjs'
 import livereload from 'rollup-plugin-livereload'
 import replace from 'rollup-plugin-replace'
 import { terser } from 'rollup-plugin-terser'
+import replaceHtmlVars from 'rollup-plugin-replace-html-vars'
 
 const production = !process.env.ROLLUP_WATCH
 
-const appVersion = `'${process.env.CIRCLE_TAG}'` || '\'dev\''
+const appVersion = process.env.CIRCLE_TAG || 'dev'
+
+const formatedAppVersion = `'${appVersion}'`
 
 export default {
   input: 'src/main.js',
@@ -19,7 +22,7 @@ export default {
   },
   plugins: [
     replace({
-      'VERSION': appVersion,
+      'VERSION': formatedAppVersion,
     }),
     svelte({
       dev: !production,
@@ -31,6 +34,11 @@ export default {
     commonjs(),
     !production && livereload('public'),
     production && terser(),
+    replaceHtmlVars({
+      files: 'public/index.html',
+      from: [/bundle.js?.*\'/, /bundle.css?.*\'/],
+      to: [`bundle.js?version=${appVersion}'`, `bundle.css?version=${appVersion}'`],
+    })
   ],
   watch: {
     clearScreen: false,

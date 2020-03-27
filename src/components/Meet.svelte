@@ -2,6 +2,7 @@
   import { onMount } from 'svelte'
   import { getUserProfile } from '../services/local'
   import { Rooms } from '../models'
+  import { appSlug } from '../../config'
 
   export let activeRoom
 
@@ -52,7 +53,7 @@
     }
 
     const domain = 'meet.jit.si'
-    const options = getMeetingOptions(`escritorio-pagarme-${activeRoom}`)
+    const options = getMeetingOptions(`${appSlug}-${activeRoom}`)
     const userProfile = getUserProfile()
 
     setTimeout(() => {

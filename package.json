@@ -2,6 +2,7 @@
   "name": "the-office",
   "version": "1.0.0",
   "devDependencies": {
+    "aws-sdk": "2.644.0",
     "eslint": "^6.5.1",
     "eslint-config-pagarme-base": "^3.0.0",
     "eslint-plugin-import": "^2.16.0",
@@ -13,6 +14,7 @@
     "rollup-plugin-livereload": "1.0.4",
     "rollup-plugin-node-resolve": "4.2.3",
     "rollup-plugin-replace": "2.2.0",
+    "rollup-plugin-replace-html-vars": "1.0.3",
     "rollup-plugin-svelte": "5.0.3",
     "rollup-plugin-terser": "4.0.4",
     "serverless": "1.49.0",
@@ -26,10 +28,22 @@
     "start": "sirv public",
     "start:dev": "sirv public --dev",
     "now-build": "npm run build",
-    "deploy-functions": "firebase deploy --only functions --token \"$FIREBASE_TOKEN\"",
-    "deploy-database": "firebase deploy --only database --token \"$FIREBASE_TOKEN\"",
-    "deploy-site": "serverless --debug",
-    "deploy": "npm run deploy-site && npm run deploy-functions && npm run deploy-database"
+    "pre-upload-functions": "cp config.js ./functions",
+    "post-upload-functions": "rm ./functions/config.js",
+    "upload-functions": "firebase deploy --only functions",
+    "ci-upload-functions": "firebase deploy --only functions --token \"$FIREBASE_TOKEN\"",
+    "deploy-functions": "npm run pre-upload-functions && npm run upload-functions && npm run post-upload-functions",
+    "ci-deploy-functions": "npm run pre-upload-functions && npm run ci-upload-functions && npm run post-upload-functions",
+    "deploy-database": "firebase deploy --only database",
+    "ci-deploy-database": "firebase deploy --only database --token \"$FIREBASE_TOKEN\"",
+    "deploy-firebase": "npm run deploy-functions && npm run deploy-database",
+    "ci-deploy-firebase": "npm run ci-deploy-functions && npm run ci-deploy-database",
+    "pre-upload-site": "rm -rf ./public/bundle.*",
+    "upload-site": "npm run pre-upload-site && serverless --debug",
+    "post-upload-site": "sh ./scripts/invalidate-cf.sh",
+    "deploy-site": "npm run pre-upload-site && npm run upload-site && npm run post-upload-site",
+    "deploy": "npm run deploy-site && npm run deploy-firebase",
+    "ci-deploy": "npm run deploy-site && npm run ci-deploy-firebase"
   },
   "dependencies": {
     "firebase": "6.1.1"
