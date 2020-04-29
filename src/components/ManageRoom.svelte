@@ -2,6 +2,7 @@
   import UserProfile from './UserProfile.svelte'
   import { Rooms } from '../models'
   import { arrayrify } from '../services/helpers'
+  import Container from './Container.svelte'
 
   export let room
 
@@ -14,15 +15,7 @@
   }
 </script>
 
-<style>
-  .container {
-    margin-bottom: 10px;
-    margin-top: 10px;
-  }
-</style>
-
-
-<div class="container nes-container with-title is-centered">
+<Container classes="margin-top">
   <p class="title">{room.name}</p>
   {#each arrayrify(room.users) as user}
     <UserProfile user={user}/>
@@ -37,4 +30,4 @@
   {:else}
     <p>essa sala não pode ser deletada pois possui usuários dentro dela</p>
   {/if}
-</div>
+</Container>

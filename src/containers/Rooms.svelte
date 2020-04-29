@@ -1,5 +1,6 @@
 <script>
   import Room from '../components/Room.svelte'
+  import InputText from '../components/InputText.svelte'
   import { Rooms } from '../models'
 
   let allRooms = []
@@ -7,7 +8,6 @@
   let loading = true
 
   export let activeRoom
-  export let activeRoomName
   export let pinnedRooms
   export let filters = {
     name: '',
@@ -70,23 +70,16 @@
   }
 </script>
 
-<style>
-  .filter-input {
-    margin-bottom: 15px;
-    max-width: 97.5%;
-  }
-</style>
-
 <div>
   {#if loading}
     <p>loading...</p>
   {:else}
-    <input
-      class='nes-input filter-input'
-      placeholder='Filtrar salas'
-      type='text'
-      bind:value="{filters.name}"
-    >
+    <InputText
+      bind:value={filters.name}
+      classes='filter-input'
+      label='Filtrar salas'
+      isField={false}
+    />
     {#each filteredRooms as room}
       <Room
         name={room.name}

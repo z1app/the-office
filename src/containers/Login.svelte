@@ -54,5 +54,5 @@
     logout
   </button>
 {:else}
-  <button type="button" class="nes-btn" on:click={login}>login</button>
+  <button type="button" class="nes-btn is-primary" on:click={login}>login</button>
 {/if}

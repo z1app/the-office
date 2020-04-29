@@ -17,10 +17,9 @@
 <style>
   nav {
     border-bottom: 1px solid rgba(255, 62, 0, 0.1);
-    font-weight: 300;
     padding: 0 1em;
   }
-
+  
   ul {
     margin: 0;
     padding: 0;
@@ -92,21 +91,23 @@
       <li>
         <!-- svelte-ignore a11y-missing-attribute -->
         <a
-          class:selected={sideBarValue === 'create-room'}
-          on:click={updateSideBar('create-room')}
+          class:selected={sideBarValue === 'manage'}
+          on:click={updateSideBar('manage')}
         >
           gerenciar
         </a>
       </li>
+      <li>
+        <!-- svelte-ignore a11y-missing-attribute -->
+        <a
+          class:selected={sideBarValue === 'customize'}
+          on:click={updateSideBar('customize')}
+        >
+          customizar
+        </a>
+      </li>
     {/if}
     <li class="f-right">
-      <a
-        class="default-link"
-        href="https://pagarme.slack.com/messages/CLZDPELNM"
-        target="_blank"
-      >
-        <img class="slack" src="images/slack.png" alt="slack logo" width="50" />
-      </a>
       <a
         class="default-link"
         href="https://github.com/pagarme/the-office"
