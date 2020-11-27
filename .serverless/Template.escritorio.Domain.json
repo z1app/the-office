@@ -1,12 +1,12 @@
 {
   "region": "us-east-1",
   "privateZone": false,
-  "domain": "stg.pagarme.net",
+  "domain": "card01.com.br",
   "subdomains": [
     {
-      "domain": "escritorio.stg.pagarme.net",
+      "domain": "escritorio.card01.com.br",
       "type": "awsS3Website",
-      "s3BucketName": "vnyd5n-k7aai2b"
+      "s3BucketName": "bec7rbs-4w8mwin"
     }
   ]
 }

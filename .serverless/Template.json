@@ -1,5 +1,5 @@
 {
   "components": {
-    "escritorio": "/Users/lucianopf/.serverless/components/registry/npm/@serverless/website@3.1.0/node_modules/@serverless/website"
+    "escritorio": "/home/igor/.serverless/components/registry/npm/@serverless/website@3.1.0/node_modules/@serverless/website"
   }
 }

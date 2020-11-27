@@ -1,6 +1,6 @@
 #!/bin/sh
 
-DISTRIBUTION_ID=E3V4ERMSCSIOH9
+DISTRIBUTION_ID=ELL1569YNVY73
 
 echo "Starting invalidation"
 

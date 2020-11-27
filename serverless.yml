@@ -6,4 +6,4 @@ escritorio:
     code:
       src: public
       hook: npm run build
-    domain: escritorio.stg.pagarme.net
+    domain: escritorio.card01.com.br
